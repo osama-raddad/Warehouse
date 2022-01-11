@@ -38,14 +38,14 @@ val namesDI = warehouse {
         this add factory {
             this name "first name"
             this constructor { "Osama" }
-            this creation CreationPattern.SINGLETON
+
         }
     }
     this add module {
         this add factory {
             this name "a"
             this constructor { "Raddad" }
-            this creation CreationPattern.SINGLETON
+
         }
     }
 }
@@ -54,21 +54,21 @@ val mainDI = warehouse(Accessibility.OPEN) {
     this add namesDI
     this add module {
         this add factory {
-            this constructor { GoodPerson(param("first name"), "yy") }
-            this creation CreationPattern.SINGLETON
-            this injectsIn Main::class
+            this constructor { GoodPerson(param("first name"), param("a")) }
+
+            this injectsIn Demo::class
         }
     }
     this add module {
         this add factory {
             this name "first name"
             this constructor { "Osama" }
-            this creation CreationPattern.SINGLETON
+
         }
     }
 }
 
-class Main {
+class Demo {
     private val goodPerson: GoodPerson by mainDI.inject()
 
     init {
@@ -78,7 +78,7 @@ class Main {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            Main()
+            Demo()
         }
     }
 }
