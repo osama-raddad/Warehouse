@@ -14,21 +14,23 @@ class WarehouseBuilder(
     private val accessibleTo: Any? = null,
     private val accessibilityManager: AccessibilityManagerContract
 ) {
-//Params Should be visible here somehow
+
     @PublishedApi
     internal var dependencyRegistry: MutableRegistry = StorageDB()
 
-    private val modules: StorageDB<Warehouse, MutableRegistry> = StorageDB()
+    private val modules: MutableList<Warehouse> = mutableListOf()
 
     infix fun add(warehouse: Warehouse) {
-        modules[warehouse] = warehouse.dependencyRegistry
+        modules.add(warehouse)
     }
 
     infix fun add(module: Module) = dependencyRegistry.putAll(module.factoryRegistry)
 
     fun build(): Warehouse {
         val warehouse = Warehouse(accessibility, accessibleTo, dependencyRegistry)
-        warehouse.dependencyRegistry.putAll(accessibilityManager.resolveWarehouseAccess(warehouse, warehouse))
+        modules.map{
+            warehouse.dependencyRegistry.putAll(accessibilityManager.resolveWarehouseAccess(warehouse, it))
+        }
         return warehouse
     }
 }

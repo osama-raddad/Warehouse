@@ -7,7 +7,8 @@ afterEvaluate {
                 from components.kotlin
                 groupId 'org.raddad'
                 artifactId 'warehouse'
-                version System.getenv("GET_VERSION")
+//                version System.getenv("GET_VERSION")
+                version "1.2.0"
             }
         }
 
@@ -17,8 +18,8 @@ afterEvaluate {
 
                 url = uri("https://maven.pkg.github.com/osama-raddad/Warehouse")
                 credentials {
-                    username = System.getenv("USER_NAME")
-                    password = System.getenv("TOKEN")
+                    username = "osama-raddad"
+                    password = "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"
                 }
             }
         }

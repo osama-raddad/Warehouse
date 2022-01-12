@@ -1,6 +1,4 @@
-import core.dependency.entity.CreationPattern
 import core.warehouse.entity.Accessibility
-import core.warehouse.entity.Warehouse
 import dsl.api.dependency.factory
 import dsl.api.module.module
 import dsl.api.warehouse.warehouse
@@ -32,7 +30,10 @@ class NiceCar(private val person: Person, private val speed: Int) : Car {
 }
 
 
-val namesDI = warehouse {
+@Retention(AnnotationRetention.RUNTIME)
+annotation class Main
+
+val namesDI = warehouse(Accessibility.ISOLATED) {
 
     this add module {
         this add factory {
@@ -43,27 +44,19 @@ val namesDI = warehouse {
     }
     this add module {
         this add factory {
-            this name "a"
+            this name "last name"
             this constructor { "Raddad" }
 
         }
     }
 }
 
-val mainDI = warehouse(Accessibility.OPEN) {
+val mainDI = warehouse {
     this add namesDI
     this add module {
         this add factory {
-            this constructor { GoodPerson(param("first name"), "a") }
-
+            this constructor { GoodPerson(param("first name"), param("last name")) }
             this injectsIn Demo::class
-        }
-    }
-    this add module {
-        this add factory {
-            this name "first name"
-            this constructor { "Osama" }
-
         }
     }
 }
@@ -72,7 +65,8 @@ class Demo {
     private val goodPerson: GoodPerson by mainDI.inject()
 
     init {
-        print(goodPerson.getFirstName())
+        println(goodPerson.getFirstName())
+        print(goodPerson.getLastName())
     }
 
     companion object {

@@ -17,16 +17,17 @@ open class AccessibilityManager : AccessibilityManagerContract {
         hisWarehouse: Warehouse
     ): Registry {
         return when {
-            isNotAccessible(hisWarehouse) -> resolveAccessibility(
+            hasDefaultAccessibility(hisWarehouse) -> resolveAccessibility(
                 myWarehouse,
                 hisWarehouse
             )
             hasSameAccessibility(myWarehouse, hisWarehouse) -> getPublicDeclarations(
                 hisWarehouse
             )
-
-            else -> error("failed to add ${hisWarehouse::class.java.name}:(${hisWarehouse.accessibleTo}) " +
-                    "to ${myWarehouse::class.java.name}:(${myWarehouse.accessibleTo}) miss matched accessibility")
+            else -> error(
+                "failed to add ${hisWarehouse::class.java.name}:(${hisWarehouse.accessibleTo}) " +
+                        "to ${myWarehouse::class.java.name}:(${myWarehouse.accessibleTo}) miss matched accessibility"
+            )
         }
     }
 
@@ -35,9 +36,12 @@ open class AccessibilityManager : AccessibilityManagerContract {
         hisWarehouse: Warehouse
     ): Registry =
         when (hisWarehouse.accessibility) {
-            ISOLATED -> error("failed to add ${hisWarehouse::class.java.name}" +
-                    "#(${hisWarehouse.accessibility}) " +
-                        "to ${myWarehouse::class.java.name} ")
+            ISOLATED -> error(
+                "failed to add ${hisWarehouse::class.java.name}" +
+                        "#(${hisWarehouse.accessibility}) " +
+                        "to ${myWarehouse::class.java.name}, " +
+                        "${hisWarehouse::class.java.name} is ISOLATED there for it cant be added to another warehouses"
+            )
             OPEN -> getPublicDeclarations(hisWarehouse)
             LOCAL -> getPublicDeclarations(hisWarehouse).mapKeys {
                 it.key.copy(isClosed = true)
@@ -45,7 +49,7 @@ open class AccessibilityManager : AccessibilityManagerContract {
             null -> TODO()
         }
 
-    private fun isNotAccessible(hisWarehouse: Warehouse) = hisWarehouse.accessibleTo == null
+    private fun hasDefaultAccessibility(hisWarehouse: Warehouse) = hisWarehouse.accessibleTo == null
 
 
     private fun hasSameAccessibility(myWarehouse: Warehouse, hisWarehouse: Warehouse) =
