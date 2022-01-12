@@ -4,7 +4,6 @@ import core.dependency.entity.Constructor
 import core.dependency.entity.CreationPattern
 import core.dependency.entity.Factory
 import core.warehouse.entity.Warehouse
-import dsl.api.injector.get
 import kotlin.reflect.KClass
 
 class FactoryBuilder(
@@ -55,12 +54,12 @@ class FactoryBuilder(
 
     inline fun <reified V> Warehouse.param(): V {
         paramsVal.add(V::class)
-        return this.inject().get(V::class, tempType)
+        return this().dependencyRetriever.get(V::class, tempType)
     }
 
     inline fun <reified V> Warehouse.param(name: String): V {
         paramsVal.add(V::class)
-        return this.inject().get(name, tempType)
+        return this().dependencyRetriever.get(name, tempType)
     }
 
     fun build(): Factory {

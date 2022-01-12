@@ -1,6 +1,4 @@
-import core.dependency.entity.CreationPattern
 import core.warehouse.entity.Accessibility
-import core.warehouse.entity.Warehouse
 import dsl.api.dependency.factory
 import dsl.api.module.module
 import dsl.api.warehouse.warehouse
@@ -31,54 +29,56 @@ class NiceCar(private val person: Person, private val speed: Int) : Car {
     override fun getOwner() = person
 }
 
+//
+//@Retention(AnnotationRetention.RUNTIME)
+//annotation class Main
 
-val namesDI = warehouse {
+const val FIRST_NAME = "first name"
+const val LAST_NAME = "last name"
+
+const val FIRST_NAME_VALUE = "Osama"
+const val LAST_NAME_VALUE = "Raddad"
+
+val namesDI = warehouse(Accessibility.LOCAL) {
 
     this add module {
         this add factory {
-            this name "first name"
-            this constructor { "Osama" }
+            this name FIRST_NAME
+            this constructor { FIRST_NAME_VALUE }
 
         }
     }
     this add module {
         this add factory {
-            this name "a"
-            this constructor { "Raddad" }
+            this name LAST_NAME
+            this constructor { LAST_NAME_VALUE }
 
         }
     }
 }
 
-val mainDI = warehouse(Accessibility.OPEN) {
+val mainDI = warehouse {
     this add namesDI
     this add module {
         this add factory {
-            this constructor { GoodPerson(param("first name"), param("a")) }
-
+            this constructor { GoodPerson(param(FIRST_NAME), param(LAST_NAME)) }
             this injectsIn Demo::class
         }
     }
-    this add module {
-        this add factory {
-            this name "first name"
-            this constructor { "Osama" }
+}
 
-        }
+ object Run{
+    @JvmStatic
+    fun main(args: Array<String>) {
+        Demo()
     }
 }
 
 class Demo {
-    private val goodPerson: GoodPerson by mainDI.inject()
+    private val goodPerson: GoodPerson by mainDI()
 
     init {
-        print(goodPerson.getFirstName())
-    }
-
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            Demo()
-        }
+        println(goodPerson.getFirstName())
+        print(goodPerson.getLastName())
     }
 }

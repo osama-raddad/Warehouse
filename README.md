@@ -9,10 +9,10 @@
 </div>
 
 
-## Warehouse DSL
+## Warehouse DSL Beta
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d7766114e19442b3aeffe3f759d07158)](https://www.codacy.com/gh/osama-raddad/Warehouse/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=osama-raddad/Warehouse&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/a7d05223d023434ab63131adfdcd592a)](https://www.codacy.com/gh/osama-raddad/Warehouse/dashboard?utm_source=github.com&utm_medium=referral&utm_content=osama-raddad/Warehouse&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/d7766114e19442b3aeffe3f759d07158)](https://www.codacy.com/gh/osama-raddad/Warehouse/dashboard?utm_source=github.com&utm_medium=referral&utm_content=osama-raddad/Warehouse&utm_campaign=Badge_Coverage)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 ![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fosama-raddad%2FWarehouse.svg?type=shield)
 
@@ -57,7 +57,7 @@ allprojects {
             		url = uri("https://maven.pkg.github.com/osama-raddad/Warehouse")
             		credentials { //this is temporary solution until github fixes the public packages problem (this key is ready only)
                 		username = "osama-raddad"
-                		password = "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" 
+                		password = "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" 
            		}
        		}
 	}
@@ -68,7 +68,7 @@ Step 2. Add the dependency
 
 ```groove
 	dependencies {
-	        implementation 'org.raddad:warehouse:1.1.0'
+	        implementation 'org.raddad:warehouse:1.3.0'
 	}
 ```
 
