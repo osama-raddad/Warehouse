@@ -54,7 +54,7 @@ val mainDI = warehouse(Accessibility.OPEN) {
     this add namesDI
     this add module {
         this add factory {
-            this constructor { GoodPerson(param("first name"), param("a")) }
+            this constructor { GoodPerson(param("first name"), "a") }
 
             this injectsIn Demo::class
         }
