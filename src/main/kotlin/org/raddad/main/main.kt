@@ -29,23 +29,29 @@ class NiceCar(private val person: Person, private val speed: Int) : Car {
     override fun getOwner() = person
 }
 
+//
+//@Retention(AnnotationRetention.RUNTIME)
+//annotation class Main
 
-@Retention(AnnotationRetention.RUNTIME)
-annotation class Main
+const val FIRST_NAME = "first name"
+const val LAST_NAME = "last name"
 
-val namesDI = warehouse(Accessibility.ISOLATED) {
+const val FIRST_NAME_VALUE = "Osama"
+const val LAST_NAME_VALUE = "Raddad"
+
+val namesDI = warehouse(Accessibility.LOCAL) {
 
     this add module {
         this add factory {
-            this name "first name"
-            this constructor { "Osama" }
+            this name FIRST_NAME
+            this constructor { FIRST_NAME_VALUE }
 
         }
     }
     this add module {
         this add factory {
-            this name "last name"
-            this constructor { "Raddad" }
+            this name LAST_NAME
+            this constructor { LAST_NAME_VALUE }
 
         }
     }
@@ -55,9 +61,16 @@ val mainDI = warehouse {
     this add namesDI
     this add module {
         this add factory {
-            this constructor { GoodPerson(param("first name"), param("last name")) }
+            this constructor { GoodPerson(param(FIRST_NAME), param(LAST_NAME)) }
             this injectsIn Demo::class
         }
+    }
+}
+
+ object Main{
+    @JvmStatic
+    fun main(args: Array<String>) {
+        Demo()
     }
 }
 
@@ -69,10 +82,5 @@ class Demo {
         print(goodPerson.getLastName())
     }
 
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            Demo()
-        }
-    }
+
 }

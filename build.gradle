@@ -25,13 +25,13 @@ kotlin {
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.0'
-    api 'org.jetbrains.kotlin:kotlin-reflect:1.6.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
+    api 'org.jetbrains.kotlin:kotlin-reflect:1.6.21'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.8.2'
-    testImplementation 'io.mockk:mockk:1.12.1'
+    testImplementation 'io.mockk:mockk:1.12.4'
 }
 test {
     finalizedBy jacocoTestReport // report is always generated after tests run
@@ -47,3 +47,13 @@ test {
     }
     useJUnitPlatform()
 }
+
+jar {
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
