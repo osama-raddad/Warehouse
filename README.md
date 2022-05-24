@@ -9,7 +9,7 @@
 </div>
 
 
-## Warehouse DSL
+## Warehouse DSL Beta
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d7766114e19442b3aeffe3f759d07158)](https://www.codacy.com/gh/osama-raddad/Warehouse/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=osama-raddad/Warehouse&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/d7766114e19442b3aeffe3f759d07158)](https://www.codacy.com/gh/osama-raddad/Warehouse/dashboard?utm_source=github.com&utm_medium=referral&utm_content=osama-raddad/Warehouse&utm_campaign=Badge_Coverage)
