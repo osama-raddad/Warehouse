@@ -67,7 +67,7 @@ val mainDI = warehouse {
     }
 }
 
- object Main{
+ object Run{
     @JvmStatic
     fun main(args: Array<String>) {
         Demo()
@@ -75,12 +75,10 @@ val mainDI = warehouse {
 }
 
 class Demo {
-    private val goodPerson: GoodPerson by mainDI.inject()
+    private val goodPerson: GoodPerson by mainDI()
 
     init {
         println(goodPerson.getFirstName())
         print(goodPerson.getLastName())
     }
-
-
 }

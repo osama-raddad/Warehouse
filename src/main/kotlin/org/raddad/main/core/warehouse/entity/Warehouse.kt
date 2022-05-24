@@ -10,10 +10,10 @@ data class Warehouse(
     val accessibleTo: Any?=null,
     @PublishedApi
     internal var dependencyRegistry: MutableRegistry = StorageDB()
-){
+):()->Injector{
     private val injector: Injector = Injector(this)
 
-    fun inject() = injector
+    override fun invoke(): Injector = injector
 
     fun getFactory(key: Metadata): Factory? = dependencyRegistry[key]
     fun containsDependency(metadata: Metadata) = dependencyRegistry.containsKey(metadata)

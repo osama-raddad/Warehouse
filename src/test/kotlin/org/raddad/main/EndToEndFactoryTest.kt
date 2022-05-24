@@ -6,8 +6,6 @@ import org.junit.jupiter.api.*
 import core.dependency.entity.CreationPattern
 import core.dependency.entity.Factory
 import core.warehouse.entity.Warehouse
-import dsl.api.injector.contains
-import dsl.api.injector.get
 import dsl.api.module.module
 
 class EndToEndFactoryTest {
@@ -25,7 +23,7 @@ class EndToEndFactoryTest {
             this constructor { fakeDependency }
         })
 
-        Assertions.assertTrue(warehouse.inject().contains<String>(), "fail to add dependency")
+        Assertions.assertTrue(warehouse().contains<String>(), "fail to add dependency")
     }
 
     @Test
@@ -35,7 +33,7 @@ class EndToEndFactoryTest {
             this constructor { fakeDependency }
         })
 
-        Assertions.assertEquals(fakeDependency, warehouse.inject().get<String>(), "fail to retrieve dependency")
+        Assertions.assertEquals(fakeDependency, warehouse().dependencyRetriever.get<String>(), "fail to retrieve dependency")
     }
 
     @Test
@@ -47,11 +45,11 @@ class EndToEndFactoryTest {
             constructor { fakeDependency }
         })
         addFactory(factory {
-            constructor { Test(warehouse.inject().get()) }
+            constructor { Test(warehouse().dependencyRetriever.get()) }
         })
 
-        val testA: Test = warehouse.inject().get()
-        val testB: Test = warehouse.inject().get()
+        val testA: Test = warehouse().dependencyRetriever.get()
+        val testB: Test = warehouse().dependencyRetriever.get()
 
         Assertions.assertFalse(testA === testB, "fail to retrieve newInstance dependency")
     }
@@ -68,8 +66,8 @@ class EndToEndFactoryTest {
         addFactory(factory(creationPattern = CreationPattern.SINGLETON) {
             constructor { Test(warehouse.param()) }
         })
-        val testA: Test = warehouse.inject().get()
-        val testB: Test = warehouse.inject().get()
+        val testA: Test = warehouse().dependencyRetriever.get()
+        val testB: Test = warehouse().dependencyRetriever.get()
 
         Assertions.assertTrue(testA === testB, "fail to retrieve SINGLETON dependency")
     }
@@ -88,8 +86,8 @@ class EndToEndFactoryTest {
             this creation CreationPattern.SINGLETON
         })
 
-        val testA: Test = warehouse.inject().get()
-        val testB: Test = warehouse.inject().get()
+        val testA: Test = warehouse().dependencyRetriever.get()
+        val testB: Test = warehouse().dependencyRetriever.get()
 
         Assertions.assertTrue(testA === testB, "fail to retrieve SINGLETON dependency")
     }
@@ -105,11 +103,11 @@ class EndToEndFactoryTest {
             constructor { fakeDependency }
         })
         addFactory(factory(contract = TestContract::class) {
-            constructor { Test(warehouse.inject().get()) }
+            constructor { Test(warehouse().dependencyRetriever.get()) }
         })
 
         try {
-            warehouse.inject().get<TestContract>()
+            warehouse().dependencyRetriever.get<TestContract>()
         } catch (e: TypeCastException) {
             fail("fail to retrieve contract Instance dependency",e)
         }
@@ -130,7 +128,7 @@ class EndToEndFactoryTest {
         })
 
         try {
-            warehouse.inject().get<TestContract>()
+            warehouse().dependencyRetriever.get<TestContract>()
         } catch (e: TypeCastException) {
             fail("fail to retrieve contract Instance dependency",e)
         }
@@ -151,8 +149,8 @@ class EndToEndFactoryTest {
             constructor { fakeDependency2 }
         })
 
-        val test1: String = warehouse.inject().get(name1)
-        val test2: String = warehouse.inject().get(name2)
+        val test1: String = warehouse().dependencyRetriever.get(name1)
+        val test2: String = warehouse().dependencyRetriever.get(name2)
 
         Assertions.assertEquals(fakeDependency1, test1, "fail to retrieve named dependency")
         Assertions.assertEquals(fakeDependency2, test2, "fail to retrieve named dependency")
@@ -175,8 +173,8 @@ class EndToEndFactoryTest {
             this name name2
         })
 
-        val test1: String = warehouse.inject().get(name1)
-        val test2: String = warehouse.inject().get(name2)
+        val test1: String = warehouse().dependencyRetriever.get(name1)
+        val test2: String = warehouse().dependencyRetriever.get(name2)
 
         Assertions.assertEquals(fakeDependency1, test1, "fail to retrieve named dependency")
         Assertions.assertEquals(fakeDependency2, test2, "fail to retrieve named dependency")

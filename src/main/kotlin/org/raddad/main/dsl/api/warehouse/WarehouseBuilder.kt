@@ -6,8 +6,6 @@ import core.warehouse.entity.MutableRegistry
 import core.warehouse.entity.Warehouse
 import storage.StorageDB
 import core.module.entity.Module
-import dsl.api.injector.get
-import kotlin.reflect.KClass
 
 class WarehouseBuilder(
     private val accessibility: Accessibility? = null,
