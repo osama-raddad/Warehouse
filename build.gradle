@@ -14,11 +14,11 @@ repositories {
 }
 kotlin {
 //    incremental=false
-//    compileKotlin {
-//        kotlinOptions {
-//            useOldBackend = true
-//        }
-//    }
+    compileKotlin {
+        kotlinOptions {
+            useOldBackend = true
+        }
+    }
     sourceSets {
         main.kotlin.srcDirs += "src/main/kotlin/org/raddad/main"
     }
