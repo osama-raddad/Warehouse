@@ -49,7 +49,7 @@ private val name: Name by warehouse.inject()
 
 Add it in your root build.gradle at the end of repositories:
 
-```groove
+```kotlin
 allprojects {
 	repositories {
 		...
@@ -66,7 +66,7 @@ allprojects {
 
 Step 2. Add the dependency
 
-```groove
+```kotlin
 	dependencies {
 	        implementation 'org.raddad:warehouse:1.3.0'
 	}
