@@ -4,11 +4,13 @@ import core.dependency.entity.Constructor
 import core.dependency.entity.CreationPattern
 import core.dependency.entity.Factory
 import core.warehouse.entity.Warehouse
+import dsl.api.warehouse.WarehouseBuilder
 import kotlin.reflect.KClass
 
 class FactoryBuilder(
     private var contractVal: KClass<*>? = null,
-    private var nameVal: String? = null,
+    @PublishedApi
+    internal var nameVal: String? = null,
     private var creationPatternVal: CreationPattern = CreationPattern.NEW,
     private var injectsInVal: MutableList<KClass<*>>?
 ) {
@@ -23,29 +25,35 @@ class FactoryBuilder(
     internal var paramsVal: MutableList<KClass<*>> = mutableListOf()
 
 
-    infix fun creation(creationPattern: CreationPattern) = apply {
+    infix fun creation(creationPattern: CreationPattern)  {
         this.creationPatternVal = creationPattern
     }
 
-    infix fun contract(contract: KClass<*>) = apply {
+    infix fun contract(contract: KClass<*>)  {
         this.contractVal = contract
     }
 
-    infix fun name(name: String) = apply {
+    infix fun name(name: String)  {
         this.nameVal = name
     }
 
-     fun injectsIn(vararg injectsIn: KClass<*>) = apply {
+    inline infix fun name(block: FactoryBuilder.() -> String)  {
+        this.nameVal = block()
+    }
+
+     fun injectsIn(vararg injectsIn: KClass<*>)  {
         this.injectsInVal = injectsIn.toMutableList()
     }
 
-    infix fun injectsIn(injectsIn: KClass<*>) = apply {
+    infix fun injectsIn(injectsIn: KClass<*>)  {
         if (injectsInVal == null) {
             injectsInVal = mutableListOf(injectsIn)
         } else {
             injectsInVal?.add(injectsIn)
         }
     }
+
+    inline fun injectsIn(block: FactoryBuilder.() -> KClass<*>) = injectsIn(block())
 
     inline infix fun <reified T : Any> constructor(noinline constructor: Warehouse.() -> T) = apply {
         tempType = T::class
@@ -57,9 +65,17 @@ class FactoryBuilder(
         return this().dependencyRetriever.get(V::class, tempType)
     }
 
-    inline fun <reified V> Warehouse.param(name: String): V {
+    inline infix fun <reified V> Warehouse.param(name: String): V {
         paramsVal.add(V::class)
         return this().dependencyRetriever.get(name, tempType)
+    }
+
+    operator fun String.unaryPlus() {
+        this@FactoryBuilder.nameVal = this
+    }
+
+    operator fun KClass<*>.unaryPlus() {
+        injectsIn(this)
     }
 
     fun build(): Factory {

@@ -1,6 +1,4 @@
 import core.warehouse.entity.Accessibility
-import dsl.api.dependency.factory
-import dsl.api.module.module
 import dsl.api.warehouse.warehouse
 
 
@@ -40,34 +38,32 @@ const val FIRST_NAME_VALUE = "Osama"
 const val LAST_NAME_VALUE = "Raddad"
 
 val namesDI = warehouse(Accessibility.LOCAL) {
-
-    this add module {
-        this add factory {
-            this name FIRST_NAME
-            this constructor { FIRST_NAME_VALUE }
-
+    module {
+        factory {
+             name {FIRST_NAME}
+             constructor { FIRST_NAME_VALUE }
         }
     }
-    this add module {
-        this add factory {
-            this name LAST_NAME
-            this constructor { LAST_NAME_VALUE }
 
+    module {
+        factory {
+            name { LAST_NAME }
+            constructor { LAST_NAME_VALUE }
         }
     }
 }
 
 val mainDI = warehouse {
-    this add namesDI
-    this add module {
-        this add factory {
-            this constructor { GoodPerson(param(FIRST_NAME), param(LAST_NAME)) }
-            this injectsIn Demo::class
+    warehouse { namesDI }
+    module {
+        factory {
+            constructor { GoodPerson(param(FIRST_NAME), param(LAST_NAME)) }
+            injectsIn { Demo::class }
         }
     }
 }
 
- object Run{
+object Run {
     @JvmStatic
     fun main(args: Array<String>) {
         Demo()
