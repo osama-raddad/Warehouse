@@ -1,14 +1,14 @@
 package dsl.api.warehouse
 
+import core.dependency.entity.BuildModule
+import core.dependency.entity.BuildWarehouse
+import core.module.entity.Module
 import core.warehouse.access.AccessibilityManagerContract
 import core.warehouse.entity.Accessibility
 import core.warehouse.entity.MutableRegistry
 import core.warehouse.entity.Warehouse
-import storage.StorageDB
-import core.module.entity.Module
-import dsl.api.dependency.FactoryBuilder
 import dsl.api.module.ModuleBuilder
-import kotlin.reflect.KClass
+import storage.StorageDB
 
 class WarehouseBuilder(
     private val accessibility: Accessibility? = null,
@@ -28,9 +28,9 @@ class WarehouseBuilder(
 
     infix fun add(module: Module) = dependencyRegistry.putAll(module.factoryRegistry)
 
-    infix fun module(block: ModuleBuilder.() -> Unit) = this add dsl.api.module.module(block = block)
+    infix fun module(block: BuildModule) = this add ModuleBuilder().apply(block).build()
 
-    inline infix fun warehouse(block: WarehouseBuilder.() -> Warehouse) = modules.add(block())
+    inline infix fun warehouse(block: BuildWarehouse) = modules.add(block())
 
     operator fun Warehouse.unaryPlus() {
         modules.add(this)

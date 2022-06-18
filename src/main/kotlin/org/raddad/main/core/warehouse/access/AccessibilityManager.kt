@@ -3,9 +3,7 @@ package core.warehouse.access
 import core.dependency.entity.Factory
 import core.dependency.entity.Metadata
 import core.module.entity.Registry
-import core.warehouse.entity.Accessibility.ISOLATED
-import core.warehouse.entity.Accessibility.OPEN
-import core.warehouse.entity.Accessibility.LOCAL
+import core.warehouse.entity.Accessibility.*
 import core.warehouse.entity.Warehouse
 import kotlin.reflect.KVisibility
 
@@ -17,13 +15,9 @@ open class AccessibilityManager : AccessibilityManagerContract {
         hisWarehouse: Warehouse
     ): Registry {
         return when {
-            hasDefaultAccessibility(hisWarehouse) -> resolveAccessibility(
-                myWarehouse,
-                hisWarehouse
-            )
-            hasSameAccessibility(myWarehouse, hisWarehouse) -> getPublicDeclarations(
-                hisWarehouse
-            )
+            hasDefaultAccessibility(hisWarehouse) -> resolveAccessibility(myWarehouse, hisWarehouse)
+            hasSameAccessibility(myWarehouse, hisWarehouse) -> getPublicDeclarations(hisWarehouse)
+
             else -> error(
                 "failed to add ${hisWarehouse::class.java.name}:(${hisWarehouse.accessibleTo}) " +
                         "to ${myWarehouse::class.java.name}:(${myWarehouse.accessibleTo}) miss matched accessibility"

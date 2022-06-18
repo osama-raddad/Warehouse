@@ -1,18 +1,22 @@
 package org.raddad.main
 
-import dsl.api.dependency.factory
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.*
 import core.dependency.entity.CreationPattern
 import core.dependency.entity.Factory
 import core.warehouse.entity.Warehouse
-import dsl.api.module.module
+import dsl.api.dependency.factory
+import dsl.api.module.ModuleBuilder
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.fail
 
 class EndToEndFactoryTest {
     private val warehouse = Warehouse()
 
     private fun addFactory(factory: Factory) {
-        warehouse.dependencyRegistry.putAll(module { this add factory }.factoryRegistry)
+        warehouse.dependencyRegistry.putAll(
+            ModuleBuilder().apply { this add factory }.build()
+                .factoryRegistry
+        )
     }
 
 
@@ -33,7 +37,11 @@ class EndToEndFactoryTest {
             this constructor { fakeDependency }
         })
 
-        Assertions.assertEquals(fakeDependency, warehouse().dependencyRetriever.get<String>(), "fail to retrieve dependency")
+        Assertions.assertEquals(
+            fakeDependency,
+            warehouse().dependencyRetriever.get<String>(),
+            "fail to retrieve dependency"
+        )
     }
 
     @Test
@@ -109,7 +117,7 @@ class EndToEndFactoryTest {
         try {
             warehouse().dependencyRetriever.get<TestContract>()
         } catch (e: TypeCastException) {
-            fail("fail to retrieve contract Instance dependency",e)
+            fail("fail to retrieve contract Instance dependency", e)
         }
     }
 
@@ -130,7 +138,7 @@ class EndToEndFactoryTest {
         try {
             warehouse().dependencyRetriever.get<TestContract>()
         } catch (e: TypeCastException) {
-            fail("fail to retrieve contract Instance dependency",e)
+            fail("fail to retrieve contract Instance dependency", e)
         }
     }
 

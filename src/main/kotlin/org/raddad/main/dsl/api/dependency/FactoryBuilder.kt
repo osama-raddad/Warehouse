@@ -4,14 +4,12 @@ import core.dependency.entity.Constructor
 import core.dependency.entity.CreationPattern
 import core.dependency.entity.Factory
 import core.warehouse.entity.Warehouse
-import dsl.api.warehouse.WarehouseBuilder
 import kotlin.reflect.KClass
 
 class FactoryBuilder(
-    private var contractVal: KClass<*>? = null,
-    @PublishedApi
-    internal var nameVal: String? = null,
-    private var creationPatternVal: CreationPattern = CreationPattern.NEW,
+    @PublishedApi internal var contractVal: KClass<*>? = null,
+    @PublishedApi internal var nameVal: String? = null,
+    @PublishedApi internal var creationPatternVal: CreationPattern = CreationPattern.NEW,
     private var injectsInVal: MutableList<KClass<*>>?
 ) {
 
@@ -25,32 +23,40 @@ class FactoryBuilder(
     internal var paramsVal: MutableList<KClass<*>> = mutableListOf()
 
 
-    infix fun creation(creationPattern: CreationPattern)  {
+    infix fun creation(creationPattern: CreationPattern) {
         this.creationPatternVal = creationPattern
     }
 
-    infix fun contract(contract: KClass<*>)  {
+    infix fun contract(contract: KClass<*>) {
         this.contractVal = contract
     }
 
-    infix fun name(name: String)  {
+    infix fun name(name: String) {
         this.nameVal = name
     }
 
-    inline infix fun name(block: FactoryBuilder.() -> String)  {
+    inline infix fun name(block: FactoryBuilder.() -> String) {
         this.nameVal = block()
     }
 
-     fun injectsIn(vararg injectsIn: KClass<*>)  {
+    fun injectsIn(vararg injectsIn: KClass<*>) {
         this.injectsInVal = injectsIn.toMutableList()
     }
 
-    infix fun injectsIn(injectsIn: KClass<*>)  {
+    infix fun injectsIn(injectsIn: KClass<*>) {
         if (injectsInVal == null) {
             injectsInVal = mutableListOf(injectsIn)
         } else {
             injectsInVal?.add(injectsIn)
         }
+    }
+
+    inline infix fun creation(block: FactoryBuilder.() -> CreationPattern) {
+        this.creationPatternVal = block()
+    }
+
+    inline infix fun contract(block: FactoryBuilder.() -> KClass<*>) {
+        this.contractVal = block()
     }
 
     inline fun injectsIn(block: FactoryBuilder.() -> KClass<*>) = injectsIn(block())

@@ -1,3 +1,4 @@
+import core.dependency.entity.CreationPattern
 import core.warehouse.entity.Accessibility
 import dsl.api.warehouse.warehouse
 
@@ -12,25 +13,6 @@ class GoodPerson(private val firstName: String, private val lastName: String) : 
     override fun getLastName() = lastName
 }
 
-class BadPerson(private val firstName: String, private val lastName: String) : Person {
-    override fun getFirstName() = firstName
-    override fun getLastName() = lastName
-}
-
-interface Car {
-    fun getSpeed(): Int
-    fun getOwner(): Person
-}
-
-class NiceCar(private val person: Person, private val speed: Int) : Car {
-    override fun getSpeed() = speed
-    override fun getOwner() = person
-}
-
-//
-//@Retention(AnnotationRetention.RUNTIME)
-//annotation class Main
-
 const val FIRST_NAME = "first name"
 const val LAST_NAME = "last name"
 
@@ -40,8 +22,10 @@ const val LAST_NAME_VALUE = "Raddad"
 val namesDI = warehouse(Accessibility.LOCAL) {
     module {
         factory {
-             name {FIRST_NAME}
-             constructor { FIRST_NAME_VALUE }
+            name { FIRST_NAME }
+            constructor { FIRST_NAME_VALUE }
+            creation { CreationPattern.REUSABLE }
+            contract { String::class }
         }
     }
 
