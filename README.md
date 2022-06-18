@@ -68,7 +68,7 @@ Step 2. Add the dependency
 
 ```kotlin
 	dependencies {
-	        implementation 'org.raddad:warehouse:1.3.0'
+	        implementation 'org.raddad:warehouse:1.4.2'
 	}
 ```
 
