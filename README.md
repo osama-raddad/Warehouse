@@ -26,11 +26,11 @@ val mainDI = warehouse(Accessibility.LOCAL) {
     warehouse { namesDI } // add another warehouse in the currunt warehouse
     module {
         factory {
-	    name {"GoodPerson"} // this object is named GoodPerson
+	    name {"GoodPerson"} // this object is named GoodPerson (optional)
             constructor { GoodPerson(param(FIRST_NAME), param(LAST_NAME)) }
-            injectsIn { Demo::class } // restruct injecting this object just to Demo class
-            creation { CreationPattern.REUSABLE } // make this object reusable
-            contract { Person::class } //retreve this object as an object of type Person
+            injectsIn { Demo::class } // restruct injecting this object just to Demo class (optional)
+            creation { CreationPattern.REUSABLE } // make this object reusable (optional)
+            contract { Person::class } //retreve this object as an object of type Person (optional)
         }
     }
 }
