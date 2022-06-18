@@ -57,7 +57,7 @@ allprojects {
             		url = uri("https://maven.pkg.github.com/osama-raddad/Warehouse")
             		credentials { //this is temporary solution until github fixes the public packages problem (this key is ready only)
                 		username = "osama-raddad"
-                		password = "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" 
+                		password = "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" 
            		}
        		}
 	}
