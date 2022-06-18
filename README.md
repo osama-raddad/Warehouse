@@ -9,7 +9,7 @@
 </div>
 
 
-## Warehouse DSL Beta
+## Warehouse DSL
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d7766114e19442b3aeffe3f759d07158)](https://www.codacy.com/gh/osama-raddad/Warehouse/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=osama-raddad/Warehouse&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/d7766114e19442b3aeffe3f759d07158)](https://www.codacy.com/gh/osama-raddad/Warehouse/dashboard?utm_source=github.com&utm_medium=referral&utm_content=osama-raddad/Warehouse&utm_campaign=Badge_Coverage)
@@ -22,16 +22,15 @@ more human friendly logs and more explicit it has graph nesting and multi-module
 ### Create
 
 ```kotlin
- val warehouse = warehouse {
-    this add module {
-        this add factory {
-            this constructor { "Jon" }
-            this creation CreationPattern.SINGLETON
-            this injectsIn Name::class
-        }
-
-        this add factory {
-            this constructor { Name(param()) }
+val mainDI = warehouse(Accessibility.LOCAL) {
+    warehouse { namesDI } // add another warehouse in the currunt warehouse
+    module {
+        factory {
+	    name {"GoodPerson"} // this object is named GoodPerson
+            constructor { GoodPerson(param(FIRST_NAME), param(LAST_NAME)) }
+            injectsIn { Demo::class } // restruct injecting this object just to Demo class
+            creation { CreationPattern.REUSABLE } // make this object reusable
+            contract { Person::class } //retreve this object as an object of type Person
         }
     }
 }
@@ -40,9 +39,10 @@ more human friendly logs and more explicit it has graph nesting and multi-module
 ### Use
 
 ```kotlin
-
-private val name: Name by warehouse.inject()
-
+class Demo {
+    @Named("GoodPerson")
+    private val goodPerson: Person by mainDI()
+}
 ```
 
 ## Install
