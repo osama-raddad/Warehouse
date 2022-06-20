@@ -46,7 +46,7 @@ jobs:
       - name: Publish art
         env:
           USER_NAME: ${{ secrets.USER_NAMEX }}
-          TOKEN: ${{ secrets.TOKENX }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GET_VERSION: ${{ steps.get_version.outputs.version }}
         run: ./gradlew build publish
 
