@@ -70,7 +70,7 @@ val mainDI = warehouse(Accessibility.LOCAL) {
 object Run {
     @JvmStatic
     fun main(args: Array<String>) {
-        Demo()
+        Demo() // run
     }
 }
 
