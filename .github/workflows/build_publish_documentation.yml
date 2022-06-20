@@ -27,6 +27,6 @@ jobs:
       - name: Publish documentation
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.TOKENX }}
           BRANCH: kdoc
           FOLDER: build/dokka
