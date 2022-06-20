@@ -27,15 +27,24 @@ class ModuleBuilder {
     @PublishedApi
     internal val factoryRegistry: MutableRegistry = StorageDB()
 
+    /**
+     * this function allows the user to include factories into the current module
+     */
     infix fun add(factory: Factory) {
         factoryRegistry[Metadata(factory.contract, factory.name)] = factory
     }
 
+    /**
+     * this function allows the user to include factories into the current module
+     */
     infix fun factory(block: BuildFactory) = this add dsl.api.dependency.factory(block = block)
 
+    /**
+     * this function allows the user to include factories into the current module
+     */
     operator fun Factory.unaryPlus() {
         factoryRegistry[Metadata(this.contract, this.name)] = this
     }
 
-    fun build(): Module = Module(factoryRegistry)
+    internal fun build(): Module = Module(factoryRegistry)
 }

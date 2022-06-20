@@ -16,7 +16,27 @@
 
 package core.warehouse.entity
 
-
+/**
+ * Accessibility enum is responsible for determining warehouse accessibility
+ *
+ */
 enum class Accessibility {
-    OPEN, ISOLATED, LOCAL
+    /**
+     * Open allows any warehouse to take over this warehouse public dependencies
+     * that mean that any warehouse that includes an open warehouse
+     * will be able to inject his dependencies and pass them to the next warehouse
+     */
+    OPEN,
+
+    /**
+     * Isolated doesn't allow any warehouse to use the included public dependencies or pass them to any warehouse
+     *
+     */
+    ISOLATED,
+
+    /**
+     * Local allow just the next warehouse to included public dependencies of this warehouse and that warehouse
+     * can not pass these dependencies to anyone else
+     */
+    LOCAL
 }

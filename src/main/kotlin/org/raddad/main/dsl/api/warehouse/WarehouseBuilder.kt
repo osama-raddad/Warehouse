@@ -38,25 +38,42 @@ class WarehouseBuilder(
     @PublishedApi
     internal val modules: MutableList<Warehouse> = mutableListOf()
 
+    /**
+     * this function allows the user to include other warehouses into the current warehouse
+     */
     infix fun add(warehouse: Warehouse) {
         modules.add(warehouse)
     }
-
+    /**
+     * this function allows the user to include modules into the current warehouse
+     */
     infix fun add(module: Module) = dependencyRegistry.putAll(module.factoryRegistry)
 
+    /**
+     * this function allows the user to include modules into the current warehouse
+     */
     infix fun module(block: BuildModule) = this add ModuleBuilder().apply(block).build()
 
+    /**
+     * this function allows the user to include other warehouses into the current warehouse
+     */
     inline infix fun warehouse(block: BuildWarehouse) = modules.add(block())
 
+    /**
+     * this function allows the user to include other warehouses into the current warehouse
+     */
     operator fun Warehouse.unaryPlus() {
         modules.add(this)
     }
 
+    /**
+     * this function allows the user to include modules into the current warehouse
+     */
     operator fun Module.unaryPlus() {
         dependencyRegistry.putAll(this.factoryRegistry)
     }
 
-    fun build(): Warehouse {
+    internal fun build(): Warehouse {
         val warehouse = Warehouse(accessibility, accessibleTo, dependencyRegistry)
         modules.map {
             warehouse.dependencyRegistry.putAll(accessibilityManager.resolveWarehouseAccess(warehouse, it))
