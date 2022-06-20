@@ -1,0 +1,116 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:////PointingToDeclaration/warehouse/[root]/index.html
+$dokka.location:/Demo///PointingToDeclaration/warehouse/[root]/-demo/index.html
+$dokka.location:/Demo/Demo/#/PointingToDeclaration/warehouse/[root]/-demo/-demo.html
+$dokka.location:/GoodPerson///PointingToDeclaration/warehouse/[root]/-good-person/index.html
+$dokka.location:/GoodPerson/GoodPerson/#kotlin.String#kotlin.String/PointingToDeclaration/warehouse/[root]/-good-person/-good-person.html
+$dokka.location:/GoodPerson/getFirstName/#/PointingToDeclaration/warehouse/[root]/-good-person/get-first-name.html
+$dokka.location:/GoodPerson/getLastName/#/PointingToDeclaration/warehouse/[root]/-good-person/get-last-name.html
+$dokka.location:/MainKt///PointingToDeclaration/warehouse/[root]/-main-kt/index.html
+$dokka.location:/MainKt/getMainDI/#/PointingToDeclaration/warehouse/[root]/-main-kt/get-main-d-i.html
+$dokka.location:/MainKt/getNamesDI/#/PointingToDeclaration/warehouse/[root]/-main-kt/get-names-d-i.html
+$dokka.location:/Person///PointingToDeclaration/warehouse/[root]/-person/index.html
+$dokka.location:/Person/getFirstName/#/PointingToDeclaration/warehouse/[root]/-person/get-first-name.html
+$dokka.location:/Person/getLastName/#/PointingToDeclaration/warehouse/[root]/-person/get-last-name.html
+$dokka.location:/Run///PointingToDeclaration/warehouse/[root]/-run/index.html
+$dokka.location:/Run/main/#kotlin.Array[kotlin.String]/PointingToDeclaration/warehouse/[root]/-run/main.html
+$dokka.location:core.dependency.entity////PointingToDeclaration/warehouse/core.dependency.entity/index.html
+$dokka.location:core.dependency.entity/CreationPattern.NEW///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.dependency.entity/-creation-pattern/-n-e-w/index.html
+$dokka.location:core.dependency.entity/CreationPattern.REUSABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.dependency.entity/-creation-pattern/-r-e-u-s-a-b-l-e/index.html
+$dokka.location:core.dependency.entity/CreationPattern.SINGLETON///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.dependency.entity/-creation-pattern/-s-i-n-g-l-e-t-o-n/index.html
+$dokka.location:core.dependency.entity/CreationPattern///PointingToDeclaration/warehouse/core.dependency.entity/-creation-pattern/index.html
+$dokka.location:core.dependency.entity/Factory///PointingToDeclaration/warehouse/core.dependency.entity/-factory/index.html
+$dokka.location:core.dependency.entity/Factory/Factory/#core.dependency.entity.CreationPattern#kotlin.reflect.KClass[*]#kotlin.String?#kotlin.collections.List[kotlin.reflect.KClass[*]]?#kotlin.Function1[core.warehouse.entity.Warehouse,*]#kotlin.Any?/PointingToDeclaration/warehouse/core.dependency.entity/-factory/-factory.html
+$dokka.location:core.dependency.entity/Metadata///PointingToDeclaration/warehouse/core.dependency.entity/-metadata/index.html
+$dokka.location:core.dependency.entity/Metadata/Metadata/#kotlin.reflect.KClass[*]?#kotlin.String?#kotlin.Boolean/PointingToDeclaration/warehouse/core.dependency.entity/-metadata/-metadata.html
+$dokka.location:core.dependency.entity/Metadata/equals/#kotlin.Any?/PointingToDeclaration/warehouse/core.dependency.entity/-metadata/equals.html
+$dokka.location:core.dependency.entity/Metadata/getClassName/#/PointingToDeclaration/warehouse/core.dependency.entity/-metadata/get-class-name.html
+$dokka.location:core.dependency.entity/Metadata/getClassType/#/PointingToDeclaration/warehouse/core.dependency.entity/-metadata/get-class-type.html
+$dokka.location:core.dependency.entity/Metadata/hashCode/#/PointingToDeclaration/warehouse/core.dependency.entity/-metadata/hash-code.html
+$dokka.location:core.dependency.entity/Metadata/isClosed/#/PointingToDeclaration/warehouse/core.dependency.entity/-metadata/is-closed.html
+$dokka.location:core.dependency.entity/Named///PointingToDeclaration/warehouse/core.dependency.entity/-named/index.html
+$dokka.location:core.module.entity////PointingToDeclaration/warehouse/core.module.entity/index.html
+$dokka.location:core.module.entity/Module///PointingToDeclaration/warehouse/core.module.entity/-module/index.html
+$dokka.location:core.module.entity/Module/Module/#kotlin.collections.MutableMap[core.dependency.entity.Metadata,core.dependency.entity.Factory]/PointingToDeclaration/warehouse/core.module.entity/-module/-module.html
+$dokka.location:core.warehouse.access////PointingToDeclaration/warehouse/core.warehouse.access/index.html
+$dokka.location:core.warehouse.access/AccessibilityManager///PointingToDeclaration/warehouse/core.warehouse.access/-accessibility-manager/index.html
+$dokka.location:core.warehouse.access/AccessibilityManager/AccessibilityManager/#/PointingToDeclaration/warehouse/core.warehouse.access/-accessibility-manager/-accessibility-manager.html
+$dokka.location:core.warehouse.access/AccessibilityManager/resolveWarehouseAccess/#core.warehouse.entity.Warehouse#core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/core.warehouse.access/-accessibility-manager/resolve-warehouse-access.html
+$dokka.location:core.warehouse.access/AccessibilityManagerContract///PointingToDeclaration/warehouse/core.warehouse.access/-accessibility-manager-contract/index.html
+$dokka.location:core.warehouse.access/AccessibilityManagerContract/resolveWarehouseAccess/#core.warehouse.entity.Warehouse#core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/core.warehouse.access/-accessibility-manager-contract/resolve-warehouse-access.html
+$dokka.location:core.warehouse.entity////PointingToDeclaration/warehouse/core.warehouse.entity/index.html
+$dokka.location:core.warehouse.entity/Accessibility.ISOLATED///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.warehouse.entity/-accessibility/-i-s-o-l-a-t-e-d/index.html
+$dokka.location:core.warehouse.entity/Accessibility.LOCAL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.warehouse.entity/-accessibility/-l-o-c-a-l/index.html
+$dokka.location:core.warehouse.entity/Accessibility.OPEN///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.warehouse.entity/-accessibility/-o-p-e-n/index.html
+$dokka.location:core.warehouse.entity/Accessibility///PointingToDeclaration/warehouse/core.warehouse.entity/-accessibility/index.html
+$dokka.location:core.warehouse.entity/Warehouse///PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/index.html
+$dokka.location:core.warehouse.entity/Warehouse/Warehouse/#core.warehouse.entity.Accessibility?#kotlin.Any?#kotlin.collections.MutableMap[core.dependency.entity.Metadata,core.dependency.entity.Factory]/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/-warehouse.html
+$dokka.location:core.warehouse.entity/Warehouse/containsDependency/#core.dependency.entity.Metadata/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/contains-dependency.html
+$dokka.location:core.warehouse.entity/Warehouse/getAccessibility/#/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/get-accessibility.html
+$dokka.location:core.warehouse.entity/Warehouse/getAccessibleTo/#/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/get-accessible-to.html
+$dokka.location:core.warehouse.entity/Warehouse/getFactory/#core.dependency.entity.Metadata/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/get-factory.html
+$dokka.location:core.warehouse.entity/Warehouse/invoke/#/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/invoke.html
+$dokka.location:dsl.api.dependency////PointingToDeclaration/warehouse/dsl.api.dependency/index.html
+$dokka.location:dsl.api.dependency/FactoryBuilder///PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/index.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/FactoryBuilder/#kotlin.reflect.KClass[*]?#kotlin.String?#core.dependency.entity.CreationPattern#kotlin.collections.MutableList[kotlin.reflect.KClass[*]]?/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/-factory-builder.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/constructor/#kotlin.Function1[core.warehouse.entity.Warehouse,TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/constructor.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/contract/#kotlin.Function1[dsl.api.dependency.FactoryBuilder,kotlin.reflect.KClass[*]]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/contract.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/contract/#kotlin.reflect.KClass[*]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/contract.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/creation/#core.dependency.entity.CreationPattern/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/creation.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/creation/#kotlin.Function1[dsl.api.dependency.FactoryBuilder,core.dependency.entity.CreationPattern]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/creation.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/injectsIn/#kotlin.Array[kotlin.reflect.KClass[*]]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/injects-in.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/injectsIn/#kotlin.Function1[dsl.api.dependency.FactoryBuilder,kotlin.reflect.KClass[*]]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/injects-in.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/injectsIn/#kotlin.reflect.KClass[*]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/injects-in.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/name/#kotlin.Function1[dsl.api.dependency.FactoryBuilder,kotlin.String]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/name.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/name/#kotlin.String/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/name.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/param/core.warehouse.entity.Warehouse#/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/param.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/param/core.warehouse.entity.Warehouse#kotlin.String/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/param.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/unaryPlus/kotlin.String#/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/unary-plus.html
+$dokka.location:dsl.api.dependency/FactoryBuilder/unaryPlus/kotlin.reflect.KClass[*]#/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/unary-plus.html
+$dokka.location:dsl.api.dependency/FactoryKt///PointingToDeclaration/warehouse/dsl.api.dependency/-factory-kt/index.html
+$dokka.location:dsl.api.dependency/FactoryKt/factory/#kotlin.reflect.KClass[*]?#kotlin.String?#core.dependency.entity.CreationPattern#kotlin.Array[kotlin.reflect.KClass[*]]#kotlin.Function1[dsl.api.dependency.FactoryBuilder,kotlin.Unit]/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-kt/factory.html
+$dokka.location:dsl.api.injector////PointingToDeclaration/warehouse/dsl.api.injector/index.html
+$dokka.location:dsl.api.injector/DependencyResolver///PointingToDeclaration/warehouse/dsl.api.injector/-dependency-resolver/index.html
+$dokka.location:dsl.api.injector/DependencyResolver/DependencyResolver/#core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/dsl.api.injector/-dependency-resolver/-dependency-resolver.html
+$dokka.location:dsl.api.injector/DependencyResolver/getWarehouse/#/PointingToDeclaration/warehouse/dsl.api.injector/-dependency-resolver/get-warehouse.html
+$dokka.location:dsl.api.injector/DependencyRetriever///PointingToDeclaration/warehouse/dsl.api.injector/-dependency-retriever/index.html
+$dokka.location:dsl.api.injector/DependencyRetriever/DependencyRetriever/#dsl.api.injector.DependencyResolver#core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/dsl.api.injector/-dependency-retriever/-dependency-retriever.html
+$dokka.location:dsl.api.injector/DependencyRetriever/getDependencyResolver/#/PointingToDeclaration/warehouse/dsl.api.injector/-dependency-retriever/get-dependency-resolver.html
+$dokka.location:dsl.api.injector/DependencyRetriever/getWarehouse/#/PointingToDeclaration/warehouse/dsl.api.injector/-dependency-retriever/get-warehouse.html
+$dokka.location:dsl.api.injector/Injector///PointingToDeclaration/warehouse/dsl.api.injector/-injector/index.html
+$dokka.location:dsl.api.injector/Injector/Injector/#core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/dsl.api.injector/-injector/-injector.html
+$dokka.location:dsl.api.injector/Injector/getValue/#TypeParam(bounds=[kotlin.Any?])#kotlin.reflect.KProperty[*]/PointingToDeclaration/warehouse/dsl.api.injector/-injector/get-value.html
+$dokka.location:dsl.api.module////PointingToDeclaration/warehouse/dsl.api.module/index.html
+$dokka.location:dsl.api.module/ModuleBuilder///PointingToDeclaration/warehouse/dsl.api.module/-module-builder/index.html
+$dokka.location:dsl.api.module/ModuleBuilder/ModuleBuilder/#/PointingToDeclaration/warehouse/dsl.api.module/-module-builder/-module-builder.html
+$dokka.location:dsl.api.module/ModuleBuilder/add/#core.dependency.entity.Factory/PointingToDeclaration/warehouse/dsl.api.module/-module-builder/add.html
+$dokka.location:dsl.api.module/ModuleBuilder/factory/#kotlin.Function1[dsl.api.dependency.FactoryBuilder,kotlin.Unit]/PointingToDeclaration/warehouse/dsl.api.module/-module-builder/factory.html
+$dokka.location:dsl.api.module/ModuleBuilder/unaryPlus/core.dependency.entity.Factory#/PointingToDeclaration/warehouse/dsl.api.module/-module-builder/unary-plus.html
+$dokka.location:dsl.api.module/ModuleKt///PointingToDeclaration/warehouse/dsl.api.module/-module-kt/index.html
+$dokka.location:dsl.api.module/ModuleKt/module/#kotlin.Function1[dsl.api.module.ModuleBuilder,kotlin.Unit]/PointingToDeclaration/warehouse/dsl.api.module/-module-kt/module.html
+$dokka.location:dsl.api.warehouse////PointingToDeclaration/warehouse/dsl.api.warehouse/index.html
+$dokka.location:dsl.api.warehouse/WarehouseBuilder///PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/index.html
+$dokka.location:dsl.api.warehouse/WarehouseBuilder/WarehouseBuilder/#core.warehouse.entity.Accessibility?#kotlin.Any?#core.warehouse.access.AccessibilityManagerContract/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/-warehouse-builder.html
+$dokka.location:dsl.api.warehouse/WarehouseBuilder/add/#core.module.entity.Module/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/add.html
+$dokka.location:dsl.api.warehouse/WarehouseBuilder/add/#core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/add.html
+$dokka.location:dsl.api.warehouse/WarehouseBuilder/module/#kotlin.Function1[dsl.api.module.ModuleBuilder,kotlin.Unit]/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/module.html
+$dokka.location:dsl.api.warehouse/WarehouseBuilder/unaryPlus/core.module.entity.Module#/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/unary-plus.html
+$dokka.location:dsl.api.warehouse/WarehouseBuilder/unaryPlus/core.warehouse.entity.Warehouse#/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/unary-plus.html
+$dokka.location:dsl.api.warehouse/WarehouseBuilder/warehouse/#kotlin.Function1[dsl.api.warehouse.WarehouseBuilder,core.warehouse.entity.Warehouse]/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/warehouse.html
+$dokka.location:dsl.api.warehouse/WarehouseKt///PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-kt/index.html
+$dokka.location:dsl.api.warehouse/WarehouseKt/warehouse/#core.warehouse.entity.Accessibility#core.warehouse.access.AccessibilityManagerContract#kotlin.Function1[dsl.api.warehouse.WarehouseBuilder,kotlin.Unit]/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-kt/warehouse.html
+$dokka.location:dsl.api.warehouse/WarehouseKt/warehouse/#kotlin.Any#core.warehouse.access.AccessibilityManagerContract#kotlin.Function1[dsl.api.warehouse.WarehouseBuilder,kotlin.Unit]/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-kt/warehouse.html
+$dokka.location:storage////PointingToDeclaration/warehouse/storage/index.html
+$dokka.location:storage/StorageDB///PointingToDeclaration/warehouse/storage/-storage-d-b/index.html
+$dokka.location:storage/StorageDB/StorageDB/#/PointingToDeclaration/warehouse/storage/-storage-d-b/-storage-d-b.html
+core.dependency.entity
+core.module.entity
+core.warehouse.access
+core.warehouse.entity
+dsl.api.dependency
+dsl.api.injector
+dsl.api.module
+dsl.api.warehouse
+storage
+
