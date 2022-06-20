@@ -1,0 +1,23 @@
+name: Docs
+on:
+  push:
+    branches: [master]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Build documentation
+        run: ./gradlew dokkaHtml
+      - name: Publish documentation
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build/dokka

@@ -1,6 +1,7 @@
 plugins {
     id("java-library")
-    id("org.jetbrains.kotlin.jvm") version "1.6.21"
+    id("org.jetbrains.kotlin.jvm") version "1.7.0"
+    id("org.jetbrains.dokka") version "1.7.0"
     id("maven-publish")
     id("jacoco")
 }
@@ -25,13 +26,14 @@ kotlin {
 }
 
 dependencies {
-    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
-    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.21'
+    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib:1.7.0'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.7.0'
     testApi 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.8.2'
     testApi 'io.mockk:mockk:1.12.4'
+    dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.7.0")
 }
 test {
     finalizedBy jacocoTestReport // report is always generated after tests run
