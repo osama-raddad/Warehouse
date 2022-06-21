@@ -5,11 +5,13 @@
 
 name: Build Test Release
 
+#on:
+#  release:
+#    types: [ published ]
 on:
-  release:
-    branches: [main]
-    types: [ published ]
-
+  push:
+    branches:
+      - 'releases/**'
 jobs:
   build:
     runs-on: ubuntu-latest
