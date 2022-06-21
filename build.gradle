@@ -2,10 +2,10 @@ plugins {
     id("java-library")
     id("org.jetbrains.kotlin.jvm") version "1.7.0"
     id("org.jetbrains.dokka") version "1.7.0"
-    id("maven-publish")
+//    id("maven-publish")
     id("jacoco")
 }
-apply from: 'publish.gradle'
+//apply from: 'publish.gradle'
 
 //group 'org.raddad'
 //version '1.0-SNAPSHOT'
