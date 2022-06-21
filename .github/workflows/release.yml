@@ -3,11 +3,16 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Build Test Release
+name: Release To Github
+
+#on:
+#  release:
+#    types: [ published ]
 
 on:
-  release:
-    types: [ published ]
+  push:
+    branches:
+      - 'releases/**'
 
 jobs:
   build:
