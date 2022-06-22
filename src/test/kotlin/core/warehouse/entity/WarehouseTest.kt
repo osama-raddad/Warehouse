@@ -23,16 +23,4 @@ import org.junit.jupiter.api.Test
 internal class WarehouseTest {
     private val injectorFactory: InjectorFactory = mockk()
     private val subject = Warehouse(injectorFactory=injectorFactory)
-
-    @Test
-    operator fun invoke() {
-    }
-
-    @Test
-    fun getFactory() {
-    }
-
-    @Test
-    fun containsDependency() {
-    }
 }
