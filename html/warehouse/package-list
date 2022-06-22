@@ -1,20 +1,5 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:////PointingToDeclaration/warehouse/[root]/index.html
-$dokka.location:/Demo///PointingToDeclaration/warehouse/[root]/-demo/index.html
-$dokka.location:/Demo/Demo/#/PointingToDeclaration/warehouse/[root]/-demo/-demo.html
-$dokka.location:/GoodPerson///PointingToDeclaration/warehouse/[root]/-good-person/index.html
-$dokka.location:/GoodPerson/GoodPerson/#kotlin.String#kotlin.String/PointingToDeclaration/warehouse/[root]/-good-person/-good-person.html
-$dokka.location:/GoodPerson/getFirstName/#/PointingToDeclaration/warehouse/[root]/-good-person/get-first-name.html
-$dokka.location:/GoodPerson/getLastName/#/PointingToDeclaration/warehouse/[root]/-good-person/get-last-name.html
-$dokka.location:/MainKt///PointingToDeclaration/warehouse/[root]/-main-kt/index.html
-$dokka.location:/MainKt/getMainDI/#/PointingToDeclaration/warehouse/[root]/-main-kt/get-main-d-i.html
-$dokka.location:/MainKt/getNamesDI/#/PointingToDeclaration/warehouse/[root]/-main-kt/get-names-d-i.html
-$dokka.location:/Person///PointingToDeclaration/warehouse/[root]/-person/index.html
-$dokka.location:/Person/getFirstName/#/PointingToDeclaration/warehouse/[root]/-person/get-first-name.html
-$dokka.location:/Person/getLastName/#/PointingToDeclaration/warehouse/[root]/-person/get-last-name.html
-$dokka.location:/Run///PointingToDeclaration/warehouse/[root]/-run/index.html
-$dokka.location:/Run/main/#kotlin.Array[kotlin.String]/PointingToDeclaration/warehouse/[root]/-run/main.html
 $dokka.location:core.dependency.entity////PointingToDeclaration/warehouse/core.dependency.entity/index.html
 $dokka.location:core.dependency.entity/CreationPattern.NEW///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.dependency.entity/-creation-pattern/-n-e-w/index.html
 $dokka.location:core.dependency.entity/CreationPattern.REUSABLE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.dependency.entity/-creation-pattern/-r-e-u-s-a-b-l-e/index.html
