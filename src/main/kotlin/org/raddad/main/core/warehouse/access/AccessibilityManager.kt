@@ -54,16 +54,15 @@ open class AccessibilityManager : AccessibilityManagerContract {
             )
             OPEN -> getPublicDeclarations(hisWarehouse)
             LOCAL -> getPublicDeclarations(hisWarehouse).mapKeys {
-                it.key.copy(isClosed = true)
+                Metadata(it.key.classType,it.key.className,true)
             }
-            null -> TODO()
+            null -> error("this should never happen")
         }
 
-    private fun hasDefaultAccessibility(hisWarehouse: Warehouse) = hisWarehouse.accessibleTo == null
-
+    private fun hasDefaultAccessibility(hisWarehouse: Warehouse) = hisWarehouse.accessibility != null
 
     private fun hasSameAccessibility(myWarehouse: Warehouse, hisWarehouse: Warehouse) =
-        hisWarehouse.accessibleTo == myWarehouse.accessibleTo
+        hisWarehouse.accessibleTo != null && hisWarehouse.accessibleTo == myWarehouse.accessibleTo
 
     private fun getPublicDeclarations(warehouse: Warehouse) =
         warehouse.dependencyRegistry
@@ -72,6 +71,4 @@ open class AccessibilityManager : AccessibilityManagerContract {
     private fun isVisibleDeclaration(declaration: Map.Entry<Metadata, Factory>): Boolean {
         return declaration.key.classType?.visibility == KVisibility.PUBLIC && !declaration.key.isClosed
     }
-
-
 }
