@@ -19,15 +19,17 @@ package core.warehouse.entity
 import core.dependency.entity.Factory
 import core.dependency.entity.Metadata
 import dsl.api.injector.Injector
+import dsl.api.injector.InjectorFactory
 import storage.StorageDB
 
 data class Warehouse(
     val accessibility: Accessibility? = null,
     val accessibleTo: Any? = null,
     @PublishedApi
-    internal var dependencyRegistry: MutableRegistry = StorageDB()
+    internal var dependencyRegistry: MutableRegistry = StorageDB(),
+    private val injectorFactory: InjectorFactory = InjectorFactory()
 ) : () -> Injector {
-    private val injector: Injector = Injector(this)
+    private val injector: Injector = injectorFactory(this)
 
     override fun invoke(): Injector = injector
 
