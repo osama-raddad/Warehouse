@@ -30,7 +30,7 @@ $dokka.location:core.warehouse.entity/Accessibility.LOCAL///PointingToDeclaratio
 $dokka.location:core.warehouse.entity/Accessibility.OPEN///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.warehouse.entity/-accessibility/-o-p-e-n/index.html
 $dokka.location:core.warehouse.entity/Accessibility///PointingToDeclaration/warehouse/core.warehouse.entity/-accessibility/index.html
 $dokka.location:core.warehouse.entity/Warehouse///PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/index.html
-$dokka.location:core.warehouse.entity/Warehouse/Warehouse/#core.warehouse.entity.Accessibility?#kotlin.Any?#kotlin.collections.MutableMap[core.dependency.entity.Metadata,core.dependency.entity.Factory]/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/-warehouse.html
+$dokka.location:core.warehouse.entity/Warehouse/Warehouse/#core.warehouse.entity.Accessibility?#kotlin.Any?#kotlin.collections.MutableMap[core.dependency.entity.Metadata,core.dependency.entity.Factory]#dsl.api.injector.InjectorFactory/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/-warehouse.html
 $dokka.location:core.warehouse.entity/Warehouse/containsDependency/#core.dependency.entity.Metadata/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/contains-dependency.html
 $dokka.location:core.warehouse.entity/Warehouse/getAccessibility/#/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/get-accessibility.html
 $dokka.location:core.warehouse.entity/Warehouse/getAccessibleTo/#/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/get-accessible-to.html
@@ -66,6 +66,9 @@ $dokka.location:dsl.api.injector/DependencyRetriever/getWarehouse/#/PointingToDe
 $dokka.location:dsl.api.injector/Injector///PointingToDeclaration/warehouse/dsl.api.injector/-injector/index.html
 $dokka.location:dsl.api.injector/Injector/Injector/#core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/dsl.api.injector/-injector/-injector.html
 $dokka.location:dsl.api.injector/Injector/getValue/#TypeParam(bounds=[kotlin.Any?])#kotlin.reflect.KProperty[*]/PointingToDeclaration/warehouse/dsl.api.injector/-injector/get-value.html
+$dokka.location:dsl.api.injector/InjectorFactory///PointingToDeclaration/warehouse/dsl.api.injector/-injector-factory/index.html
+$dokka.location:dsl.api.injector/InjectorFactory/InjectorFactory/#/PointingToDeclaration/warehouse/dsl.api.injector/-injector-factory/-injector-factory.html
+$dokka.location:dsl.api.injector/InjectorFactory/invoke/#core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/dsl.api.injector/-injector-factory/invoke.html
 $dokka.location:dsl.api.module////PointingToDeclaration/warehouse/dsl.api.module/index.html
 $dokka.location:dsl.api.module/ModuleBuilder///PointingToDeclaration/warehouse/dsl.api.module/-module-builder/index.html
 $dokka.location:dsl.api.module/ModuleBuilder/ModuleBuilder/#/PointingToDeclaration/warehouse/dsl.api.module/-module-builder/-module-builder.html
