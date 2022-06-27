@@ -27,7 +27,7 @@ class EndToEndFactoryTest {
             this constructor { fakeDependency }
         })
 
-        Assertions.assertTrue(warehouse().contains<String>(), "fail to add dependency")
+        Assertions.assertTrue(warehouse.contains<String>(), "fail to add dependency")
     }
 
     @Test
@@ -39,7 +39,7 @@ class EndToEndFactoryTest {
 
         Assertions.assertEquals(
             fakeDependency,
-            warehouse().dependencyRetriever.get<String>(),
+            warehouse().retriever.get<String>(),
             "fail to retrieve dependency"
         )
     }
@@ -53,11 +53,11 @@ class EndToEndFactoryTest {
             constructor { fakeDependency }
         })
         addFactory(factory {
-            constructor { Test(warehouse().dependencyRetriever.get()) }
+            constructor { Test(warehouse().retriever.get()) }
         })
 
-        val testA: Test = warehouse().dependencyRetriever.get()
-        val testB: Test = warehouse().dependencyRetriever.get()
+        val testA: Test = warehouse().retriever.get()
+        val testB: Test = warehouse().retriever.get()
 
         Assertions.assertFalse(testA === testB, "fail to retrieve newInstance dependency")
     }
@@ -74,8 +74,8 @@ class EndToEndFactoryTest {
         addFactory(factory(creationPattern = CreationPattern.SINGLETON) {
             constructor { Test(warehouse.param()) }
         })
-        val testA: Test = warehouse().dependencyRetriever.get()
-        val testB: Test = warehouse().dependencyRetriever.get()
+        val testA: Test = warehouse().retriever.get()
+        val testB: Test = warehouse().retriever.get()
 
         Assertions.assertTrue(testA === testB, "fail to retrieve SINGLETON dependency")
     }
@@ -94,8 +94,8 @@ class EndToEndFactoryTest {
             this creation CreationPattern.SINGLETON
         })
 
-        val testA: Test = warehouse().dependencyRetriever.get()
-        val testB: Test = warehouse().dependencyRetriever.get()
+        val testA: Test = warehouse().retriever.get()
+        val testB: Test = warehouse().retriever.get()
 
         Assertions.assertTrue(testA === testB, "fail to retrieve SINGLETON dependency")
     }
@@ -111,11 +111,11 @@ class EndToEndFactoryTest {
             constructor { fakeDependency }
         })
         addFactory(factory(contract = TestContract::class) {
-            constructor { Test(warehouse().dependencyRetriever.get()) }
+            constructor { Test(warehouse().retriever.get()) }
         })
 
         try {
-            warehouse().dependencyRetriever.get<TestContract>()
+            warehouse().retriever.get<TestContract>()
         } catch (e: TypeCastException) {
             fail("fail to retrieve contract Instance dependency", e)
         }
@@ -136,7 +136,7 @@ class EndToEndFactoryTest {
         })
 
         try {
-            warehouse().dependencyRetriever.get<TestContract>()
+            warehouse().retriever.get<TestContract>()
         } catch (e: TypeCastException) {
             fail("fail to retrieve contract Instance dependency", e)
         }
@@ -157,8 +157,8 @@ class EndToEndFactoryTest {
             constructor { fakeDependency2 }
         })
 
-        val test1: String = warehouse().dependencyRetriever.get(name1)
-        val test2: String = warehouse().dependencyRetriever.get(name2)
+        val test1: String = warehouse().retriever.get(name1)
+        val test2: String = warehouse().retriever.get(name2)
 
         Assertions.assertEquals(fakeDependency1, test1, "fail to retrieve named dependency")
         Assertions.assertEquals(fakeDependency2, test2, "fail to retrieve named dependency")
@@ -181,8 +181,8 @@ class EndToEndFactoryTest {
             this name name2
         })
 
-        val test1: String = warehouse().dependencyRetriever.get(name1)
-        val test2: String = warehouse().dependencyRetriever.get(name2)
+        val test1: String = warehouse().retriever.get(name1)
+        val test2: String = warehouse().retriever.get(name2)
 
         Assertions.assertEquals(fakeDependency1, test1, "fail to retrieve named dependency")
         Assertions.assertEquals(fakeDependency2, test2, "fail to retrieve named dependency")

@@ -21,17 +21,19 @@ package core.dependency.entity
  */
 enum class CreationPattern {
     /**
-     * the library will creat a new instance every time the object being injected
+     * the library will create a new instance every time the object being injected
      */
     NEW,
+
     /**
-     * the library will creat a new instance for the first time the object is injected
-     * SINGLETON is also thead safe, so it guarantees that there is only one instance
+     * the library will create a new instance for the first time the object is injected
+     * SINGLETON is also thread safe, so it guarantees that there is only one instance
      * even in a threaded environment
      */
     SINGLETON,
+
     /**
-     * the library will creat a new instance for the first time the object is injected
+     * the library will create a new instance for the first time the object is injected
      * REUSABLE is not thread safe and in sertan scenarios it can produce multiple instances
      */
     REUSABLE

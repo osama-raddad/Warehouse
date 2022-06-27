@@ -136,7 +136,7 @@ class FactoryBuilder(
      */
     inline fun <reified V> Warehouse.param(): V {
         paramsVal.add(V::class)
-        return this().dependencyRetriever.get(V::class, tempType)
+        return this().retriever.get(V::class, tempType)
     }
 
     /**
@@ -145,7 +145,7 @@ class FactoryBuilder(
      */
     inline infix fun <reified V> Warehouse.param(name: String): V {
         paramsVal.add(V::class)
-        return this().dependencyRetriever.get(name, tempType)
+        return this().retriever.get(name, tempType)
     }
 
     /**

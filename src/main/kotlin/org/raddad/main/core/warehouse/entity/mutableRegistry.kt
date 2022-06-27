@@ -18,6 +18,7 @@ package core.warehouse.entity
 
 import core.dependency.entity.Factory
 import core.dependency.entity.Metadata
+import storage.StorageDB
 
 
-typealias MutableRegistry = MutableMap<Metadata, Factory>
+typealias MutableRegistry = StorageDB<Metadata, Factory>

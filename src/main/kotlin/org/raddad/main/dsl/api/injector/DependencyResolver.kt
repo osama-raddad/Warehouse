@@ -28,12 +28,14 @@ class DependencyResolver(val warehouse: Warehouse) {
     internal inline fun <reified T> resolveAccessibility(
         factory: Factory,
         target: KClass<*>
-    ): T =
-        if (factory.injectsIn?.contains(target) == true)
-            resolveInstance(factory)
-        else if (factory.injectsIn == null || factory.injectsIn.isEmpty())
-            resolveInstance(factory)
-        else error("class ${T::class.simpleName} can't be injected in ${target.simpleName} unless you declaratively say so")
+    ): T = when {
+        factory.injectsIn == null || factory.injectsIn.isEmpty() -> resolveInstance(factory)
+        factory.injectsIn.contains(target) -> resolveInstance(factory)
+        else -> error(
+            "class ${T::class.simpleName} can't be " +
+                    "injected in ${target.simpleName} unless you declaratively say so"
+        )
+    }
 
     @PublishedApi
     internal fun getDependency(key: Metadata) = warehouse.getFactory(key)
@@ -49,7 +51,12 @@ class DependencyResolver(val warehouse: Warehouse) {
     //resolve resolveTarget
     @PublishedApi
     internal inline operator fun <reified K, reified T> get(key: Metadata): T {
-        val factory = warehouse.getFactory(key) ?: error("${key.classType ?: key.className} doesn't exist in the graph")
+        val factory = warehouse.getFactory(key) ?: error("${key.classType ?: key.className}" +
+                " doesn't exist in the graph")
         return resolveAccessibility(factory, K::class)
     }
+
+    fun containsDependency(metadata: Metadata): Boolean =
+        warehouse.containsDependency(metadata)
+
 }

@@ -16,8 +16,10 @@
 
 package dsl.api.injector
 
-import core.warehouse.entity.Warehouse
-
-class InjectorFactory : (Warehouse) -> Injector {
-    override fun invoke(warehouse: Warehouse) = Injector(warehouse)
+class InjectorFactory
+    : (DependencyResolver, DependencyRetriever) -> Injector {
+    override fun invoke(
+        resolver: DependencyResolver,
+        retriever: DependencyRetriever
+    ) = Injector(resolver, retriever)
 }

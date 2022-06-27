@@ -44,6 +44,7 @@ class WarehouseBuilder(
     infix fun add(warehouse: Warehouse) {
         modules.add(warehouse)
     }
+
     /**
      * this function allows the user to include modules into the current warehouse
      */

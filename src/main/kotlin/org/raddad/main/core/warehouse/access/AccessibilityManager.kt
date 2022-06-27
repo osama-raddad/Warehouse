@@ -19,7 +19,7 @@ package core.warehouse.access
 import core.dependency.entity.Factory
 import core.dependency.entity.Metadata
 import core.module.entity.Registry
-import core.warehouse.entity.Accessibility.*
+import core.warehouse.entity.Accessibility
 import core.warehouse.entity.Warehouse
 import kotlin.reflect.KVisibility
 
@@ -46,15 +46,15 @@ open class AccessibilityManager : AccessibilityManagerContract {
         hisWarehouse: Warehouse
     ): Registry =
         when (hisWarehouse.accessibility) {
-            ISOLATED -> error(
+            Accessibility.ISOLATED -> error(
                 "failed to add ${hisWarehouse::class.java.name}" +
                         "#(${hisWarehouse.accessibility}) " +
                         "to ${myWarehouse::class.java.name}, " +
                         "${hisWarehouse::class.java.name} is ISOLATED there for it cant be added to another warehouses"
             )
-            OPEN -> getPublicDeclarations(hisWarehouse)
-            LOCAL -> getPublicDeclarations(hisWarehouse).mapKeys {
-                Metadata(it.key.classType,it.key.className,true)
+            Accessibility.OPEN -> getPublicDeclarations(hisWarehouse)
+            Accessibility.LOCAL -> getPublicDeclarations(hisWarehouse).mapKeys {
+                Metadata(it.key.classType, it.key.className, isClosed = true)
             }
             null -> error("this should never happen")
         }
@@ -69,6 +69,6 @@ open class AccessibilityManager : AccessibilityManagerContract {
             .filter(::isVisibleDeclaration)
 
     private fun isVisibleDeclaration(declaration: Map.Entry<Metadata, Factory>): Boolean {
-        return declaration.key.classType?.visibility == KVisibility.PUBLIC && !declaration.key.isClosed
+        return declaration.key.classVisibility == KVisibility.PUBLIC && !declaration.key.isClosed
     }
 }

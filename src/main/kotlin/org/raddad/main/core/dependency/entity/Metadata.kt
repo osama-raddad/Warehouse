@@ -17,11 +17,13 @@
 package core.dependency.entity
 
 import kotlin.reflect.KClass
+import kotlin.reflect.KVisibility
 
 data class Metadata(
     val classType: KClass<*>? = null,
     val className: String? = null,
-    val isClosed: Boolean = false
+    val classVisibility: KVisibility? = classType?.visibility,
+    var isClosed: Boolean = false
 ) {
     override fun hashCode() = getHashCode()
 

@@ -31,7 +31,7 @@ class ModuleBuilder {
      * this function allows the user to include factories into the current module
      */
     infix fun add(factory: Factory) {
-        factoryRegistry[Metadata(factory.contract, factory.name)] = factory
+        factoryRegistry[Metadata(factory.contract, factory.name, factory.contract.visibility)] = factory
     }
 
     /**
@@ -43,7 +43,7 @@ class ModuleBuilder {
      * this function allows the user to include factories into the current module
      */
     operator fun Factory.unaryPlus() {
-        factoryRegistry[Metadata(this.contract, this.name)] = this
+        factoryRegistry[Metadata(this.contract, this.name, this.contract.visibility)] = this
     }
 
     internal fun build(): Module = Module(factoryRegistry)

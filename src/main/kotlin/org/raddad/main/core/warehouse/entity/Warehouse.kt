@@ -18,6 +18,8 @@ package core.warehouse.entity
 
 import core.dependency.entity.Factory
 import core.dependency.entity.Metadata
+import dsl.api.injector.DependencyResolver
+import dsl.api.injector.DependencyRetriever
 import dsl.api.injector.Injector
 import dsl.api.injector.InjectorFactory
 import storage.StorageDB
@@ -29,10 +31,17 @@ data class Warehouse(
     internal var dependencyRegistry: MutableRegistry = StorageDB(),
     private val injectorFactory: InjectorFactory = InjectorFactory()
 ) : () -> Injector {
-    private val injector: Injector = injectorFactory(this)
+    private val dependencyResolver: DependencyResolver = DependencyResolver(this)
+    private val dependencyRetriever: DependencyRetriever = DependencyRetriever(this, dependencyResolver)
+
+    private val injector: Injector = injectorFactory(dependencyResolver, dependencyRetriever)
 
     override fun invoke(): Injector = injector
 
     fun getFactory(key: Metadata): Factory? = dependencyRegistry[key]
     fun containsDependency(metadata: Metadata) = dependencyRegistry.containsKey(metadata)
+
+    @PublishedApi
+    internal inline fun <reified T> contains() = containsDependency(Metadata(T::class))
+
 }

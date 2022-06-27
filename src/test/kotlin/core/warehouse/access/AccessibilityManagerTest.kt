@@ -49,6 +49,7 @@ internal class AccessibilityManagerTest {
         every { hisWarehouse.accessibility } returns Accessibility.OPEN
         every { hisWarehouse.dependencyRegistry } returns fakeReg
         every { metadata.classType } returns kClass
+        every { metadata.classVisibility } returns KVisibility.PUBLIC
         every { metadata.isClosed } returns false
         every { kClass.visibility } returns KVisibility.PUBLIC
 
@@ -59,8 +60,7 @@ internal class AccessibilityManagerTest {
             hisWarehouse.accessibility // check if Warehouse has accessibility enum in this case Accessibility.OPEN
             hisWarehouse.accessibility // switch between accessibility types
             hisWarehouse.dependencyRegistry // iterate over the included warehouse registry
-            metadata.classType
-            kClass.visibility // retrieve PUBLIC dependencies
+            metadata.classVisibility // retrieve PUBLIC dependencies
             metadata.isClosed // check if this dependency is original of the included Warehouse
             metadata.hashCode() // move dependency
         }
@@ -83,6 +83,7 @@ internal class AccessibilityManagerTest {
         every { myWarehouse.accessibleTo } returns String
         every { hisWarehouse.dependencyRegistry } returns fakeReg
         every { metadata.classType } returns kClass
+        every { metadata.classVisibility } returns KVisibility.PUBLIC
         every { metadata.isClosed } returns false
         every { kClass.visibility } returns KVisibility.PUBLIC
 
@@ -95,8 +96,7 @@ internal class AccessibilityManagerTest {
             hisWarehouse.accessibleTo
             myWarehouse.accessibleTo
             hisWarehouse.dependencyRegistry // iterate over the included warehouse registry
-            metadata.classType
-            kClass.visibility // retrieve PUBLIC dependencies
+            metadata.classVisibility // retrieve PUBLIC dependencies
             metadata.isClosed // check if this dependency is original of the included Warehouse
             metadata.hashCode() // move dependency
         }
@@ -118,8 +118,8 @@ internal class AccessibilityManagerTest {
         every { hisWarehouse.accessibility } returns Accessibility.OPEN
         every { hisWarehouse.dependencyRegistry } returns fakeReg
         every { metadata.classType } returns kClass
+        every { metadata.classVisibility } returns KVisibility.INTERNAL
         every { metadata.isClosed } returns false
-        every { kClass.visibility } returns KVisibility.INTERNAL
 
         val outcome = subject.resolveWarehouseAccess(myWarehouse, hisWarehouse)
 
@@ -128,8 +128,7 @@ internal class AccessibilityManagerTest {
             hisWarehouse.accessibility // check if Warehouse has accessibility enum in this case Accessibility.OPEN
             hisWarehouse.accessibility // switch between accessibility types
             hisWarehouse.dependencyRegistry // iterate over the included warehouse registry
-            metadata.classType
-            kClass.visibility // retrieve PUBLIC dependencies none are there
+            metadata.classVisibility // retrieve PUBLIC dependencies none are there
         }
 
         Assertions.assertSame(null, outcome[metadata])
@@ -149,6 +148,7 @@ internal class AccessibilityManagerTest {
         every { hisWarehouse.dependencyRegistry } returns fakeReg
         every { metadata.classType } returns kClass
         every { metadata.className } returns null
+        every { metadata.classVisibility } returns KVisibility.PUBLIC
         every { kClass.visibility } returns KVisibility.PUBLIC
         every { metadata.isClosed } returns false
 
@@ -159,16 +159,17 @@ internal class AccessibilityManagerTest {
             hisWarehouse.accessibility // check if Warehouse has accessibility enum in this case Accessibility.OPEN
             hisWarehouse.accessibility // switch between accessibility types
             hisWarehouse.dependencyRegistry // iterate over the included warehouse registry
-            metadata.classType
-            kClass.visibility // retrieve PUBLIC dependencies
+            metadata.classVisibility // retrieve PUBLIC dependencies
             metadata.isClosed // check if this dependency is original of the included Warehouse
             metadata.hashCode() //
             metadata.classType  // create new metadata object
             metadata.className  //
+            kClass.visibility
             kClass.hashCode() //
         }
-
-        Assertions.assertSame(factory, outcome[Metadata(kClass,null,true)])
+        val outcomeMetadata = Metadata(kClass, null, KVisibility.PUBLIC)
+        outcomeMetadata.isClosed = true //
+        Assertions.assertSame(factory, outcome[outcomeMetadata])
     }
 
     @Test

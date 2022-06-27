@@ -19,6 +19,8 @@ package dsl.api.warehouse
 import core.warehouse.access.AccessibilityManager
 import core.warehouse.access.AccessibilityManagerContract
 import core.warehouse.entity.Accessibility
+import kotlin.reflect.KClass
+
 /** warehouse is a factory function for creating a warehouse instance
  * the warehouse instance is the root object in this library it allows you
  * to store your dependencies and also retrieve them.
@@ -32,7 +34,9 @@ fun warehouse(
     accessibleTo: Any,
     accessibilityManager: AccessibilityManagerContract = AccessibilityManager(),
     block: WarehouseBuilder.() -> Unit,
-) = WarehouseBuilder(accessibleTo = accessibleTo, accessibilityManager = accessibilityManager).apply(block).build()
+) = WarehouseBuilder(accessibleTo = accessibleTo, accessibilityManager = accessibilityManager)
+    .apply(block)
+    .build()
 
 /** warehouse is a factory function for creating a warehouse instance
  * the warehouse instance is the root object in this library it allows you
@@ -47,4 +51,11 @@ fun warehouse(
     accessibility: Accessibility = Accessibility.LOCAL,
     accessibilityManager: AccessibilityManagerContract = AccessibilityManager(),
     block: WarehouseBuilder.() -> Unit,
-) = WarehouseBuilder(accessibility = accessibility, accessibilityManager = accessibilityManager).apply(block).build()
+) = WarehouseBuilder(accessibility = accessibility, accessibilityManager = accessibilityManager)
+    .apply(block)
+    .build()
+
+fun setupWarehouse() {
+    val kClass: KClass<Any> = Any::class
+    kClass.visibility
+}

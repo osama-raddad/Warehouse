@@ -18,20 +18,16 @@ package dsl.api.injector
 
 import core.dependency.entity.Metadata
 import core.dependency.entity.Named
-import core.warehouse.entity.Warehouse
 import kotlin.reflect.KProperty
 import kotlin.reflect.full.findAnnotation
 
 
 class Injector(
     @PublishedApi
-    internal val warehouse: Warehouse
+    internal val resolver: DependencyResolver,
+    @PublishedApi
+    internal val retriever: DependencyRetriever,
 ) {
-    @PublishedApi
-    internal val resolver: DependencyResolver = DependencyResolver(warehouse)
-
-    @PublishedApi
-    internal val dependencyRetriever: DependencyRetriever = DependencyRetriever(resolver, warehouse)
 
 
     inline operator fun <reified T, reified K> getValue(target: K, property: KProperty<*>): T {
@@ -46,9 +42,6 @@ class Injector(
 
 
     @PublishedApi
-    internal inline fun <reified T> contains() = containsDependency(Metadata(T::class))
-
-    @PublishedApi
-    internal fun containsDependency(metadata: Metadata): Boolean =
-        warehouse.containsDependency(metadata)
+    internal inline fun <reified T> contains() =
+        resolver.containsDependency(Metadata(T::class))
 }

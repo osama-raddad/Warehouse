@@ -20,7 +20,7 @@ import core.dependency.entity.Metadata
 import core.warehouse.entity.Warehouse
 import kotlin.reflect.KClass
 
-class DependencyRetriever(val dependencyResolver: DependencyResolver, val warehouse: Warehouse) {
+class DependencyRetriever(val warehouse: Warehouse, val dependencyResolver: DependencyResolver) {
     @PublishedApi
     internal inline fun <reified T> get(): T {
         val key = Metadata(classType = T::class)
