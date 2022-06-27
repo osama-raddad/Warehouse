@@ -16,7 +16,7 @@
 
 package dsl.api.dependency
 
-import core.dependency.entity.CreationPattern.*
+import core.dependency.entity.CreationPattern
 import core.dependency.entity.Factory
 import core.warehouse.entity.Warehouse
 
@@ -26,14 +26,14 @@ internal const val LOCK = "Lock"
 @PublishedApi
 internal inline fun <reified T> Factory.resolveInstance(warehouse: Warehouse): T {
     val value = when (creationPattern) {
-        NEW -> constructor(warehouse)
-        SINGLETON -> {
+        CreationPattern.NEW -> constructor(warehouse)
+        CreationPattern.SINGLETON -> {
             synchronized(LOCK) {
                 if (instance == null) instance = constructor(warehouse)
                 instance
             }
         }
-        REUSABLE -> {
+        CreationPattern.REUSABLE -> {
             if (instance == null) instance = constructor(warehouse)
             instance
         }
