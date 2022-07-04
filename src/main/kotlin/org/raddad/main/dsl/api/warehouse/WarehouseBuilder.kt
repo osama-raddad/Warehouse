@@ -74,8 +74,8 @@ class WarehouseBuilder(
         dependencyRegistry.putAll(this.factoryRegistry)
     }
 
-    internal fun build(): Warehouse {
-        val warehouse = Warehouse(accessibility, accessibleTo, dependencyRegistry)
+    internal fun build(): InjectableWarehouse {
+        val warehouse = InjectableWarehouse(accessibility, accessibleTo, dependencyRegistry)
         modules.map {
             warehouse.dependencyRegistry.putAll(accessibilityManager.resolveWarehouseAccess(warehouse, it))
         }

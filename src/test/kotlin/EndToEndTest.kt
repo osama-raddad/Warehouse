@@ -2,15 +2,15 @@ package org.raddad.main
 
 import core.dependency.entity.CreationPattern
 import core.dependency.entity.Factory
-import core.warehouse.entity.Warehouse
 import dsl.api.dependency.factory
 import dsl.api.module.ModuleBuilder
+import dsl.api.warehouse.InjectableWarehouse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
 
 class EndToEndFactoryTest {
-    private val warehouse = Warehouse()
+    private val warehouse = InjectableWarehouse()
 
     private fun addFactory(factory: Factory) {
         warehouse.dependencyRegistry.putAll(
