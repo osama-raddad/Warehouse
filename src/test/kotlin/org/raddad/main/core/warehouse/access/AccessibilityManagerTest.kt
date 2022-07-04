@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package core.warehouse.access
+package org.raddad.main.org.raddad.main.core.warehouse.access
 
 import core.dependency.entity.Factory
 import core.dependency.entity.Metadata
+import core.warehouse.access.AccessibilityManager
 import core.warehouse.entity.Accessibility
 import core.warehouse.entity.Warehouse
 import io.mockk.every

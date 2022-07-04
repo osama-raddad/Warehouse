@@ -7,18 +7,15 @@ plugins {
 }
 apply from: 'publish.gradle'
 
-//group 'org.raddad'
-//version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 kotlin {
-//    incremental=false
     compileKotlin {
-        kotlinOptions {
-            useOldBackend = true
-        }
+//        kotlinOptions {
+//            useOldBackend = true
+//        }
     }
     sourceSets {
         main.kotlin.srcDirs += "src/main/kotlin/org/raddad/main"
