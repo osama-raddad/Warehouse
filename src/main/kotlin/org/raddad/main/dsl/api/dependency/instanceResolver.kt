@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package dsl.api.dependency
+package org.raddad.main.dsl.api.dependency
 
-import core.dependency.entity.CreationPattern
-import core.dependency.entity.Factory
-import core.warehouse.entity.Warehouse
+import org.raddad.main.core.dependency.entity.CreationPattern
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.warehouse.entity.Warehouse
 
 @PublishedApi
 internal const val LOCK = "Lock"

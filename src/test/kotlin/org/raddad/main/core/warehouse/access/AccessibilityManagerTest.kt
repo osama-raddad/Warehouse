@@ -14,19 +14,18 @@
  * limitations under the License.
  */
 
-package org.raddad.main.org.raddad.main.core.warehouse.access
+package org.raddad.main.core.warehouse.access
 
-import core.dependency.entity.Factory
-import core.dependency.entity.Metadata
-import core.warehouse.access.AccessibilityManager
-import core.warehouse.entity.Accessibility
-import core.warehouse.entity.Warehouse
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.dependency.entity.Metadata
+import org.raddad.main.core.warehouse.entity.Accessibility
+import org.raddad.main.core.warehouse.entity.Warehouse
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verifySequence
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
-import storage.StorageDB
+import org.raddad.main.storage.StorageDB
 import java.lang.IllegalStateException
 import kotlin.reflect.KClass
 import kotlin.reflect.KVisibility

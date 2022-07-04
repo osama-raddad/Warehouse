@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package core.dependency.entity
+package org.raddad.main.core.dependency.entity
 
 import kotlin.reflect.KClass
 import kotlin.reflect.KVisibility

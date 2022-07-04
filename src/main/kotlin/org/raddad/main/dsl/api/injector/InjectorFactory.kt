@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dsl.api.injector
+package org.raddad.main.dsl.api.injector
 
 class InjectorFactory
     : (DependencyResolver, DependencyRetriever) -> Injector {

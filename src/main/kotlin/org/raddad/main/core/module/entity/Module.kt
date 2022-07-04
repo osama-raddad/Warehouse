@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package core.module.entity
+package org.raddad.main.core.module.entity
 
-import storage.StorageDB
+import org.raddad.main.storage.StorageDB
 
 data class Module(
     @PublishedApi

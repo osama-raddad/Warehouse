@@ -1,10 +1,9 @@
-package org.raddad.main.org.raddad.main.dsl.api.dependency
+package org.raddad.main.dsl.api.dependency
 
-import core.dependency.entity.Constructor
-import core.dependency.entity.CreationPattern
-import core.dependency.entity.Factory
-import core.warehouse.entity.Warehouse
-import dsl.api.dependency.resolveInstance
+import org.raddad.main.core.dependency.entity.Constructor
+import org.raddad.main.core.dependency.entity.CreationPattern
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.warehouse.entity.Warehouse
 import io.mockk.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertThrows

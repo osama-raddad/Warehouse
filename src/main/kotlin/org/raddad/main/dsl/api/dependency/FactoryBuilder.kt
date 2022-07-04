@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package dsl.api.dependency
+package org.raddad.main.dsl.api.dependency
 
-import core.dependency.entity.Constructor
-import core.dependency.entity.CreationPattern
-import core.dependency.entity.Factory
-import core.warehouse.entity.Warehouse
-import dsl.api.warehouse.InjectableWarehouse
+import org.raddad.main.core.dependency.entity.Constructor
+import org.raddad.main.core.dependency.entity.CreationPattern
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.warehouse.entity.Warehouse
+import org.raddad.main.dsl.api.warehouse.InjectableWarehouse
 import kotlin.reflect.KClass
 
 class FactoryBuilder(

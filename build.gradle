@@ -11,15 +11,35 @@ apply from: 'publish.gradle'
 repositories {
     mavenCentral()
 }
+
 kotlin {
     compileKotlin {
+        kotlinOptions {
+            useOldBackend = true
+            languageVersion = "1.5"
+            apiVersion = "1.5"
+            jvmTarget = "1.8"
+            javaParameters = true
+        }
+    }
+//    compileKotlin {
 //        kotlinOptions {
-//            useOldBackend = true
+//            useK2 = true
+//            languageVersion = "1.7"
+//            apiVersion = "1.7"
+//            jvmTarget = "17"
+//            javaParameters = true
 //        }
-    }
-    sourceSets {
-        main.kotlin.srcDirs += "src/main/kotlin/org/raddad/main"
-    }
+//    }
+//    compileTestKotlin {
+//        kotlinOptions {
+//            useK2 = true
+//            languageVersion = "1.7"
+//            apiVersion = "1.7"
+//            jvmTarget = "17"
+//            javaParameters = true
+//        }
+//    }
 }
 
 dependencies {
@@ -33,17 +53,24 @@ dependencies {
     dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.7.0")
 }
 test {
-    finalizedBy jacocoTestReport // report is always generated after tests run
-    forkEvery = 1
-    testLogging {
-        showStandardStreams = true
-    }
-    jacocoTestReport {
-        reports {
-            xml.enabled true
-            html.enabled true
-        }
-    }
+    finalizedBy jacocoTestReport
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+task runMain(type: JavaExec) {
+    main = 'org.raddad.main.Main'
+    classpath = sourceSets.main.runtimeClasspath
 }
 

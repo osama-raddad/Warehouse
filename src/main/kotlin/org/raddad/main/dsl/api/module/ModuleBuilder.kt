@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package dsl.api.module
+package org.raddad.main.dsl.api.module
 
-import core.dependency.entity.BuildFactory
-import core.dependency.entity.Factory
-import core.dependency.entity.Metadata
-import core.module.entity.Module
-import core.module.entity.MutableRegistry
-import storage.StorageDB
+import org.raddad.main.core.dependency.entity.BuildFactory
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.dependency.entity.Metadata
+import org.raddad.main.core.module.entity.Module
+import org.raddad.main.core.module.entity.MutableRegistry
+import org.raddad.main.storage.StorageDB
 
 class ModuleBuilder {
     @PublishedApi
@@ -37,7 +37,7 @@ class ModuleBuilder {
     /**
      * this function allows the user to include factories into the current module
      */
-    infix fun factory(block: BuildFactory) = this add dsl.api.dependency.factory(block = block)
+    infix fun factory(block: BuildFactory) = this add org.raddad.main.dsl.api.dependency.factory(block = block)
 
     /**
      * this function allows the user to include factories into the current module

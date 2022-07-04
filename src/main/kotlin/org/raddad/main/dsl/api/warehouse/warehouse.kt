@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package dsl.api.warehouse
+package org.raddad.main.dsl.api.warehouse
 
-import core.warehouse.access.AccessibilityManager
-import core.warehouse.access.AccessibilityManagerContract
-import core.warehouse.entity.Accessibility
+import org.raddad.main.core.warehouse.access.AccessibilityManager
+import org.raddad.main.core.warehouse.access.AccessibilityManagerContract
+import org.raddad.main.core.warehouse.entity.Accessibility
 import kotlin.reflect.KClass
 
 /** warehouse is a factory function for creating a warehouse instance

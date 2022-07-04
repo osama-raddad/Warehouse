@@ -1,10 +1,10 @@
 package org.raddad.main
 
-import core.dependency.entity.CreationPattern
-import core.dependency.entity.Factory
-import dsl.api.dependency.factory
-import dsl.api.module.ModuleBuilder
-import dsl.api.warehouse.InjectableWarehouse
+import org.raddad.main.core.dependency.entity.CreationPattern
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.dsl.api.dependency.factory
+import org.raddad.main.dsl.api.module.ModuleBuilder
+import org.raddad.main.dsl.api.warehouse.InjectableWarehouse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail

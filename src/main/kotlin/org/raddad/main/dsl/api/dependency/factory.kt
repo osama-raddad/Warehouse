@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package dsl.api.dependency
+package org.raddad.main.dsl.api.dependency
 
-import core.dependency.entity.CreationPattern
+import org.raddad.main.core.dependency.entity.CreationPattern
 import kotlin.reflect.KClass
 
 fun factory(

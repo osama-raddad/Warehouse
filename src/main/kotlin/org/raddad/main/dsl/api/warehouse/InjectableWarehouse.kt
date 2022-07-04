@@ -1,13 +1,13 @@
-package dsl.api.warehouse
+package org.raddad.main.dsl.api.warehouse
 
-import core.warehouse.entity.Accessibility
-import core.warehouse.entity.MutableRegistry
-import core.warehouse.entity.Warehouse
-import dsl.api.injector.DependencyResolver
-import dsl.api.injector.DependencyRetriever
-import dsl.api.injector.Injector
-import dsl.api.injector.InjectorFactory
-import storage.StorageDB
+import org.raddad.main.core.warehouse.entity.Accessibility
+import org.raddad.main.core.warehouse.entity.MutableRegistry
+import org.raddad.main.core.warehouse.entity.Warehouse
+import org.raddad.main.dsl.api.injector.DependencyResolver
+import org.raddad.main.dsl.api.injector.DependencyRetriever
+import org.raddad.main.dsl.api.injector.Injector
+import org.raddad.main.dsl.api.injector.InjectorFactory
+import org.raddad.main.storage.StorageDB
 
 
 class InjectableWarehouse(
