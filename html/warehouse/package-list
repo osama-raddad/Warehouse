@@ -32,12 +32,11 @@ $dokka.location:core.warehouse.entity/Accessibility.LOCAL///PointingToDeclaratio
 $dokka.location:core.warehouse.entity/Accessibility.OPEN///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}warehouse/core.warehouse.entity/-accessibility/-o-p-e-n/index.html
 $dokka.location:core.warehouse.entity/Accessibility///PointingToDeclaration/warehouse/core.warehouse.entity/-accessibility/index.html
 $dokka.location:core.warehouse.entity/Warehouse///PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/index.html
-$dokka.location:core.warehouse.entity/Warehouse/Warehouse/#core.warehouse.entity.Accessibility?#kotlin.Any?#storage.StorageDB[core.dependency.entity.Metadata,core.dependency.entity.Factory]#dsl.api.injector.InjectorFactory/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/-warehouse.html
+$dokka.location:core.warehouse.entity/Warehouse/Warehouse/#core.warehouse.entity.Accessibility?#kotlin.Any?#storage.StorageDB[core.dependency.entity.Metadata,core.dependency.entity.Factory]/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/-warehouse.html
 $dokka.location:core.warehouse.entity/Warehouse/containsDependency/#core.dependency.entity.Metadata/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/contains-dependency.html
 $dokka.location:core.warehouse.entity/Warehouse/getAccessibility/#/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/get-accessibility.html
 $dokka.location:core.warehouse.entity/Warehouse/getAccessibleTo/#/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/get-accessible-to.html
 $dokka.location:core.warehouse.entity/Warehouse/getFactory/#core.dependency.entity.Metadata/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/get-factory.html
-$dokka.location:core.warehouse.entity/Warehouse/invoke/#/PointingToDeclaration/warehouse/core.warehouse.entity/-warehouse/invoke.html
 $dokka.location:dsl.api.dependency////PointingToDeclaration/warehouse/dsl.api.dependency/index.html
 $dokka.location:dsl.api.dependency/FactoryBuilder///PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/index.html
 $dokka.location:dsl.api.dependency/FactoryBuilder/FactoryBuilder/#kotlin.reflect.KClass[*]?#kotlin.String?#core.dependency.entity.CreationPattern#kotlin.collections.MutableList[kotlin.reflect.KClass[*]]?/PointingToDeclaration/warehouse/dsl.api.dependency/-factory-builder/-factory-builder.html
@@ -81,6 +80,9 @@ $dokka.location:dsl.api.module/ModuleBuilder/unaryPlus/core.dependency.entity.Fa
 $dokka.location:dsl.api.module/ModuleKt///PointingToDeclaration/warehouse/dsl.api.module/-module-kt/index.html
 $dokka.location:dsl.api.module/ModuleKt/module/#kotlin.Function1[dsl.api.module.ModuleBuilder,kotlin.Unit]/PointingToDeclaration/warehouse/dsl.api.module/-module-kt/module.html
 $dokka.location:dsl.api.warehouse////PointingToDeclaration/warehouse/dsl.api.warehouse/index.html
+$dokka.location:dsl.api.warehouse/InjectableWarehouse///PointingToDeclaration/warehouse/dsl.api.warehouse/-injectable-warehouse/index.html
+$dokka.location:dsl.api.warehouse/InjectableWarehouse/InjectableWarehouse/#core.warehouse.entity.Accessibility?#kotlin.Any?#storage.StorageDB[core.dependency.entity.Metadata,core.dependency.entity.Factory]#dsl.api.injector.InjectorFactory/PointingToDeclaration/warehouse/dsl.api.warehouse/-injectable-warehouse/-injectable-warehouse.html
+$dokka.location:dsl.api.warehouse/InjectableWarehouse/invoke/#/PointingToDeclaration/warehouse/dsl.api.warehouse/-injectable-warehouse/invoke.html
 $dokka.location:dsl.api.warehouse/WarehouseBuilder///PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/index.html
 $dokka.location:dsl.api.warehouse/WarehouseBuilder/WarehouseBuilder/#core.warehouse.entity.Accessibility?#kotlin.Any?#core.warehouse.access.AccessibilityManagerContract/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/-warehouse-builder.html
 $dokka.location:dsl.api.warehouse/WarehouseBuilder/add/#core.module.entity.Module/PointingToDeclaration/warehouse/dsl.api.warehouse/-warehouse-builder/add.html
