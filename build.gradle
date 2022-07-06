@@ -1,76 +1,18 @@
 plugins {
-    id("java-library")
-    id("org.jetbrains.kotlin.jvm") version "1.7.0"
-    id("org.jetbrains.dokka") version "1.7.0"
-    id("maven-publish")
-    id("jacoco")
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm' version '1.7.0'
+    id 'org.jetbrains.dokka' version '1.7.0'
+    id 'maven-publish'
+    id 'jacoco'
 }
+
 apply from: 'publish.gradle'
-
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-    compileKotlin {
-        kotlinOptions {
-            useOldBackend = true
-            languageVersion = "1.5"
-            apiVersion = "1.5"
-            jvmTarget = "1.8"
-            javaParameters = true
-        }
-    }
-//    compileKotlin {
-//        kotlinOptions {
-//            useK2 = true
-//            languageVersion = "1.7"
-//            apiVersion = "1.7"
-//            jvmTarget = "17"
-//            javaParameters = true
-//        }
-//    }
-//    compileTestKotlin {
-//        kotlinOptions {
-//            useK2 = true
-//            languageVersion = "1.7"
-//            apiVersion = "1.7"
-//            jvmTarget = "17"
-//            javaParameters = true
-//        }
-//    }
-}
-
-dependencies {
-    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib:1.7.0'
-    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.7.0'
-    testApi 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.8.2'
-    testApi 'io.mockk:mockk:1.12.4'
-    dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.7.0")
-}
-test {
-    finalizedBy jacocoTestReport
-    useJUnitPlatform()
-}
-
-jacocoTestReport {
-    dependsOn test
-    reports {
-        xml.enabled true
-        html.enabled true
-    }
-}
-
-jacoco {
-    toolVersion = "0.8.8"
-}
+apply from: 'dependencies.gradle'
+apply from: 'kotlin.gradle'
+apply from: 'test.gradle'
 
 task runMain(type: JavaExec) {
-    main = 'org.raddad.main.Main'
+    mainClass = 'org.raddad.main.Main'
     classpath = sourceSets.main.runtimeClasspath
 }
 

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
 
-class EndToEndFactoryTest {
+class EndToEndTest {
     private val warehouse = InjectableWarehouse()
 
     private fun addFactory(factory: Factory) {
@@ -141,7 +141,6 @@ class EndToEndFactoryTest {
             fail("fail to retrieve contract Instance dependency", e)
         }
     }
-
 
     @Test
     fun `Test retrieve named dependency (declared in builder constructor)`() {

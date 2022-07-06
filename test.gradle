@@ -1,0 +1,15 @@
+test {
+    finalizedBy jacocoTestReport
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+}

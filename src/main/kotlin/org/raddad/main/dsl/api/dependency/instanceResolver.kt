@@ -20,23 +20,25 @@ import org.raddad.main.core.dependency.entity.CreationPattern
 import org.raddad.main.core.dependency.entity.Factory
 import org.raddad.main.core.warehouse.entity.Warehouse
 
-@PublishedApi
-internal const val LOCK = "Lock"
+object InstanceResolver {
+    @PublishedApi
+    internal const val LOCK = "Lock"
 
-@PublishedApi
-internal inline fun <reified T> Factory.resolveInstance(warehouse: Warehouse): T {
-    val value = when (creationPattern) {
-        CreationPattern.NEW -> constructor(warehouse)
-        CreationPattern.SINGLETON -> {
-            synchronized(LOCK) {
+    @PublishedApi
+    internal inline fun <reified T> Factory.resolveInstance(warehouse: Warehouse): T {
+        val value = when (creationPattern) {
+            CreationPattern.NEW -> constructor(warehouse)
+            CreationPattern.SINGLETON -> {
+                synchronized(LOCK) {
+                    if (instance == null) instance = constructor(warehouse)
+                    instance
+                }
+            }
+            CreationPattern.REUSABLE -> {
                 if (instance == null) instance = constructor(warehouse)
                 instance
             }
         }
-        CreationPattern.REUSABLE -> {
-            if (instance == null) instance = constructor(warehouse)
-            instance
-        }
+        return safeCast(value)
     }
-    return safeCast(value)
 }

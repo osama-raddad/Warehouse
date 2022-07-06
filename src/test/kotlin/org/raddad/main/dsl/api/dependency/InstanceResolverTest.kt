@@ -8,6 +8,7 @@ import io.mockk.*
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
+import org.raddad.main.dsl.api.dependency.InstanceResolver.resolveInstance
 
 internal class InstanceResolverTest {
 
