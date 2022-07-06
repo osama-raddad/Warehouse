@@ -56,6 +56,7 @@ $dokka.location:org.raddad.main.dsl.api.dependency/FactoryBuilder/unaryPlus/kotl
 $dokka.location:org.raddad.main.dsl.api.dependency/FactoryBuilder/unaryPlus/kotlin.reflect.KClass[*]#/PointingToDeclaration/warehouse/org.raddad.main.dsl.api.dependency/-factory-builder/unary-plus.html
 $dokka.location:org.raddad.main.dsl.api.dependency/FactoryKt///PointingToDeclaration/warehouse/org.raddad.main.dsl.api.dependency/-factory-kt/index.html
 $dokka.location:org.raddad.main.dsl.api.dependency/FactoryKt/factory/#kotlin.reflect.KClass[*]?#kotlin.String?#org.raddad.main.core.dependency.entity.CreationPattern#kotlin.Array[kotlin.reflect.KClass[*]]#kotlin.Function1[org.raddad.main.dsl.api.dependency.FactoryBuilder,kotlin.Unit]/PointingToDeclaration/warehouse/org.raddad.main.dsl.api.dependency/-factory-kt/factory.html
+$dokka.location:org.raddad.main.dsl.api.dependency/InstanceResolver///PointingToDeclaration/warehouse/org.raddad.main.dsl.api.dependency/-instance-resolver/index.html
 $dokka.location:org.raddad.main.dsl.api.injector////PointingToDeclaration/warehouse/org.raddad.main.dsl.api.injector/index.html
 $dokka.location:org.raddad.main.dsl.api.injector/DependencyResolver///PointingToDeclaration/warehouse/org.raddad.main.dsl.api.injector/-dependency-resolver/index.html
 $dokka.location:org.raddad.main.dsl.api.injector/DependencyResolver/DependencyResolver/#org.raddad.main.core.warehouse.entity.Warehouse/PointingToDeclaration/warehouse/org.raddad.main.dsl.api.injector/-dependency-resolver/-dependency-resolver.html
