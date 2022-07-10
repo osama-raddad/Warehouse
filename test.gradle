@@ -6,7 +6,7 @@ test {
 jacocoTestReport {
     dependsOn test
     reports {
-        xml.required
+        xml.enabled(true)
     }
 }
 
