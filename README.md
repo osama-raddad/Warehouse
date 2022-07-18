@@ -15,7 +15,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/d7766114e19442b3aeffe3f759d07158)](https://www.codacy.com/gh/osama-raddad/Warehouse/dashboard?utm_source=github.com&utm_medium=referral&utm_content=osama-raddad/Warehouse&utm_campaign=Badge_Coverage)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fosama-raddad%2FWarehouse.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fosama-raddad%2FWarehouse?ref=badge_shield)
-[![](https://jitpack.io/v/osama-raddad/Warehouse.svg)](https://jitpack.io/#osama-raddad/Warehouse)
+[![Jitpack](https://jitpack.io/v/osama-raddad/Warehouse.svg)](https://jitpack.io/#osama-raddad/Warehouse)
 
 Warehouse is a lightweight Kotlin DSL dependency injection library this library has an extremely faster learning curve and
 more human friendly logs and more explicit it has graph nesting and multi-module support.
