@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package dsl.api.warehouse
+package org.raddad.main.dsl.api.warehouse
 
-import core.dependency.entity.BuildModule
-import core.dependency.entity.BuildWarehouse
-import core.module.entity.Module
-import core.warehouse.access.AccessibilityManagerContract
-import core.warehouse.entity.Accessibility
-import core.warehouse.entity.MutableRegistry
-import core.warehouse.entity.Warehouse
-import dsl.api.module.ModuleBuilder
-import storage.StorageDB
+import org.raddad.main.core.dependency.entity.BuildModule
+import org.raddad.main.core.dependency.entity.BuildWarehouse
+import org.raddad.main.core.module.entity.Module
+import org.raddad.main.core.warehouse.access.AccessibilityManagerContract
+import org.raddad.main.core.warehouse.entity.Accessibility
+import org.raddad.main.core.warehouse.entity.MutableRegistry
+import org.raddad.main.core.warehouse.entity.Warehouse
+import org.raddad.main.dsl.api.module.ModuleBuilder
+import org.raddad.main.storage.StorageDB
 
 class WarehouseBuilder(
     private val accessibility: Accessibility? = null,
@@ -74,8 +74,8 @@ class WarehouseBuilder(
         dependencyRegistry.putAll(this.factoryRegistry)
     }
 
-    internal fun build(): Warehouse {
-        val warehouse = Warehouse(accessibility, accessibleTo, dependencyRegistry)
+    internal fun build(): InjectableWarehouse {
+        val warehouse = InjectableWarehouse(accessibility, accessibleTo, dependencyRegistry)
         modules.map {
             warehouse.dependencyRegistry.putAll(accessibilityManager.resolveWarehouseAccess(warehouse, it))
         }

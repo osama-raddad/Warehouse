@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package dsl.api.dependency
+package org.raddad.main.dsl.api.dependency
 
-import core.dependency.entity.Constructor
-import core.dependency.entity.CreationPattern
-import core.dependency.entity.Factory
-import core.warehouse.entity.Warehouse
+import org.raddad.main.core.dependency.entity.Constructor
+import org.raddad.main.core.dependency.entity.CreationPattern
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.warehouse.entity.Warehouse
+import org.raddad.main.dsl.api.warehouse.InjectableWarehouse
 import kotlin.reflect.KClass
 
 class FactoryBuilder(
@@ -136,7 +137,7 @@ class FactoryBuilder(
      */
     inline fun <reified V> Warehouse.param(): V {
         paramsVal.add(V::class)
-        return this().retriever.get(V::class, tempType)
+        return (this as InjectableWarehouse)().retriever.get(V::class, tempType)
     }
 
     /**
@@ -145,7 +146,7 @@ class FactoryBuilder(
      */
     inline infix fun <reified V> Warehouse.param(name: String): V {
         paramsVal.add(V::class)
-        return this().retriever.get(name, tempType)
+        return (this as InjectableWarehouse)().retriever.get(name, tempType)
     }
 
     /**

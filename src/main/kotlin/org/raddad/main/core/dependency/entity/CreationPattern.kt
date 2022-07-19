@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package core.dependency.entity
+package org.raddad.main.core.dependency.entity
 
 /**
  * this enum determines how the library is going to deal with the dependency instance

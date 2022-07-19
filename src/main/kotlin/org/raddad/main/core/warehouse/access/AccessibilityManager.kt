@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package core.warehouse.access
+package org.raddad.main.core.warehouse.access
 
-import core.dependency.entity.Factory
-import core.dependency.entity.Metadata
-import core.module.entity.Registry
-import core.warehouse.entity.Accessibility
-import core.warehouse.entity.Warehouse
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.dependency.entity.Metadata
+import org.raddad.main.core.module.entity.Registry
+import org.raddad.main.core.warehouse.entity.Accessibility
+import org.raddad.main.core.warehouse.entity.Warehouse
 import kotlin.reflect.KVisibility
 
 open class AccessibilityManager : AccessibilityManagerContract {

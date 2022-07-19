@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package dsl.api.dependency
+package org.raddad.main.dsl.api.dependency
 
 @PublishedApi
 internal inline fun <reified T : Any> safeCast(value: Any?): T {
     if (value == null) throw TypeCastException(
-        "the DI graph doesn't contain ${T::class.qualifiedName}"
+        "the org.raddad.main.DI graph doesn't contain ${T::class.qualifiedName}"
     )
     if (value !is T) throw TypeCastException(
         "${value::class.qualifiedName} cannot be cast to ${T::class.qualifiedName}"

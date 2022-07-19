@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dsl.api.module
+package org.raddad.main.dsl.api.module
 
 
 fun module(block: ModuleBuilder.() -> Unit) = ModuleBuilder().apply(block).build()

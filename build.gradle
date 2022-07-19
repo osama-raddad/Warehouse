@@ -1,4 +1,5 @@
 plugins {
+
     id("java-library")
     id("org.jetbrains.kotlin.jvm") version "1.7.0"
     id("org.jetbrains.dokka") version "1.7.0"
@@ -10,43 +11,13 @@ plugins {
 //group 'org.raddad'
 //version '1.0-SNAPSHOT'
 
-repositories {
-    mavenCentral()
-}
-kotlin {
-//    incremental=false
-    compileKotlin {
-        kotlinOptions {
-            useOldBackend = true
-        }
-    }
-    sourceSets {
-        main.kotlin.srcDirs += "src/main/kotlin/org/raddad/main"
-    }
-}
+apply from: 'publish.gradle'
+apply from: 'dependencies.gradle'
+apply from: 'kotlin.gradle'
+apply from: 'test.gradle'
 
-dependencies {
-    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib:1.7.0'
-    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.7.0'
-    testApi 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.8.2'
-    testApi 'io.mockk:mockk:1.12.4'
-    dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.7.0")
-}
-test {
-    finalizedBy jacocoTestReport // report is always generated after tests run
-    forkEvery = 1
-    testLogging {
-        showStandardStreams = true
-    }
-    jacocoTestReport {
-        reports {
-            xml.enabled true
-            html.enabled true
-        }
-    }
-    useJUnitPlatform()
+task runMain(type: JavaExec) {
+    mainClass = 'org.raddad.main.Main'
+    classpath = sourceSets.main.runtimeClasspath
 }
 

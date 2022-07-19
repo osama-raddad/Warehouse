@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package dsl.api.injector
+package org.raddad.main.dsl.api.injector
 
-import core.dependency.entity.Factory
-import core.dependency.entity.Metadata
-import core.warehouse.entity.Warehouse
-import dsl.api.dependency.resolveInstance
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.dependency.entity.Metadata
+import org.raddad.main.core.warehouse.entity.Warehouse
+import org.raddad.main.dsl.api.dependency.InstanceResolver.resolveInstance
 import kotlin.reflect.KClass
 
 class DependencyResolver(val warehouse: Warehouse) {

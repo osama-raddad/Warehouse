@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package core.dependency.entity
+package org.raddad.main.core.dependency.entity
 
-import core.warehouse.entity.Warehouse
-import dsl.api.dependency.FactoryBuilder
-import dsl.api.module.ModuleBuilder
-import dsl.api.warehouse.WarehouseBuilder
+import org.raddad.main.core.warehouse.entity.Warehouse
+import org.raddad.main.dsl.api.dependency.FactoryBuilder
+import org.raddad.main.dsl.api.module.ModuleBuilder
+import org.raddad.main.dsl.api.warehouse.WarehouseBuilder
 
 
 typealias Constructor<T> = Warehouse.() -> T

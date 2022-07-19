@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package dsl.api.injector
+package org.raddad.main.dsl.api.injector
 
-import core.dependency.entity.Metadata
-import core.dependency.entity.Named
+import org.raddad.main.core.dependency.entity.Metadata
+import org.raddad.main.core.dependency.entity.Named
 import kotlin.reflect.KProperty
 import kotlin.reflect.full.findAnnotation
 

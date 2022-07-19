@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package core.warehouse.entity
+package org.raddad.main.core.warehouse.entity
 
-import core.dependency.entity.Factory
-import core.dependency.entity.Metadata
-import storage.StorageDB
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.dependency.entity.Metadata
+import org.raddad.main.storage.StorageDB
 
 
 typealias MutableRegistry = StorageDB<Metadata, Factory>

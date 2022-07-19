@@ -1,16 +1,16 @@
 package org.raddad.main
 
-import core.dependency.entity.CreationPattern
-import core.dependency.entity.Factory
-import core.warehouse.entity.Warehouse
-import dsl.api.dependency.factory
-import dsl.api.module.ModuleBuilder
+import org.raddad.main.core.dependency.entity.CreationPattern
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.dsl.api.dependency.factory
+import org.raddad.main.dsl.api.module.ModuleBuilder
+import org.raddad.main.dsl.api.warehouse.InjectableWarehouse
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
 
-class EndToEndFactoryTest {
-    private val warehouse = Warehouse()
+class EndToEndTest {
+    private val warehouse = InjectableWarehouse()
 
     private fun addFactory(factory: Factory) {
         warehouse.dependencyRegistry.putAll(
@@ -141,7 +141,6 @@ class EndToEndFactoryTest {
             fail("fail to retrieve contract Instance dependency", e)
         }
     }
-
 
     @Test
     fun `Test retrieve named dependency (declared in builder constructor)`() {

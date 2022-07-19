@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package core.warehouse.access
+package org.raddad.main.core.warehouse.access
 
-import core.dependency.entity.Factory
-import core.dependency.entity.Metadata
-import core.warehouse.entity.Warehouse
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.dependency.entity.Metadata
+import org.raddad.main.core.warehouse.entity.Warehouse
 
 interface AccessibilityManagerContract {
     fun resolveWarehouseAccess(

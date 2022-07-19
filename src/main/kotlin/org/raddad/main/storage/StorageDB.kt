@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package storage
+package org.raddad.main.storage
 
 import java.util.concurrent.ConcurrentHashMap
 

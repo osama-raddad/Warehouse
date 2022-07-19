@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package core.module.entity
+package org.raddad.main.core.module.entity
 
-import core.dependency.entity.Factory
-import core.dependency.entity.Metadata
+import org.raddad.main.core.dependency.entity.Factory
+import org.raddad.main.core.dependency.entity.Metadata
 
 typealias Registry = Map<Metadata, Factory>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package core.warehouse.entity
+package org.raddad.main.core.warehouse.entity
 
 /**
  * Accessibility enum is responsible for determining warehouse accessibility
