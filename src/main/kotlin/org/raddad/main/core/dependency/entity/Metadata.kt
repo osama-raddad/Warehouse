@@ -19,12 +19,25 @@ package org.raddad.main.core.dependency.entity
 import kotlin.reflect.KClass
 import kotlin.reflect.KVisibility
 
+/**
+ * Created by Osama Raddad on 3/1/20.
+ *
+ * This class is used to represent a dependency in the application.
+ *
+ * @param classType The class of the dependency.
+ * @param className The name of the dependency.
+ * @param classVisibility The visibility of the dependency.
+ */
 data class Metadata(
     val classType: KClass<*>? = null,
     val className: String? = null,
     val classVisibility: KVisibility? = classType?.visibility,
-    var isClosed: Boolean = false
+    var dependencyLevel: Int = 0,
 ) {
+    override fun toString(): String {
+        return "Metadata(classType=$classType, className=$className, classVisibility=$classVisibility, dependencyLevel=$dependencyLevel)"
+    }
+    
     override fun hashCode() = getHashCode()
 
     override fun equals(other: Any?): Boolean = getHashCode() == other.hashCode()

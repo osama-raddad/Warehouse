@@ -55,7 +55,10 @@ fun warehouse(
     .apply(block)
     .build()
 
-fun setupWarehouse() {
+/**
+ * configuration for the warehouse
+ */
+fun configureWarehouses() {
     val kClass: KClass<Any> = Any::class
     kClass.visibility
 }

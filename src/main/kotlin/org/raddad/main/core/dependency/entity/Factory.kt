@@ -18,6 +18,18 @@ package org.raddad.main.core.dependency.entity
 
 import kotlin.reflect.KClass
 
+/**
+ * Created by Osama Raddad on 3/1/20.
+ *
+ * This class is used to represent a dependency.
+ *
+ * @param creationPattern The creation pattern of the dependency.
+ * @param contract The contract of the dependency.
+ * @param name The name of the dependency.
+ * @param injectsIn The injects in of the dependency.
+ * @param constructor The constructor of the dependency.
+ * @param instance The instance of the dependency.
+ */
 data class Factory(
     @PublishedApi
     internal val creationPattern: CreationPattern,

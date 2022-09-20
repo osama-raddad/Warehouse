@@ -23,6 +23,9 @@ import org.raddad.main.core.warehouse.entity.Accessibility
 import org.raddad.main.core.warehouse.entity.Warehouse
 import kotlin.reflect.KVisibility
 
+/**
+ * This class is responsible for the access control of the warehouse.
+ */
 open class AccessibilityManager : AccessibilityManagerContract {
 
 
@@ -45,7 +48,7 @@ open class AccessibilityManager : AccessibilityManagerContract {
         myWarehouse: Warehouse,
         hisWarehouse: Warehouse
     ): Registry =
-        when (hisWarehouse.accessibility) {
+        when (hisWarehouse.accessibility!!) {
             Accessibility.ISOLATED -> error(
                 "failed to add ${hisWarehouse::class.java.name}" +
                         "#(${hisWarehouse.accessibility}) " +
@@ -54,9 +57,8 @@ open class AccessibilityManager : AccessibilityManagerContract {
             )
             Accessibility.OPEN -> getPublicDeclarations(hisWarehouse)
             Accessibility.LOCAL -> getPublicDeclarations(hisWarehouse).mapKeys {
-                Metadata(it.key.classType, it.key.className, isClosed = true)
+                it.key.copy(dependencyLevel = it.key.dependencyLevel + 1)
             }
-            null -> error("this should never happen")
         }
 
     private fun hasDefaultAccessibility(hisWarehouse: Warehouse) = hisWarehouse.accessibility != null
@@ -69,6 +71,6 @@ open class AccessibilityManager : AccessibilityManagerContract {
             .filter(::isVisibleDeclaration)
 
     private fun isVisibleDeclaration(declaration: Map.Entry<Metadata, Factory>): Boolean {
-        return declaration.key.classVisibility == KVisibility.PUBLIC && !declaration.key.isClosed
+        return declaration.key.classVisibility == KVisibility.PUBLIC && declaration.key.dependencyLevel <= 1
     }
 }

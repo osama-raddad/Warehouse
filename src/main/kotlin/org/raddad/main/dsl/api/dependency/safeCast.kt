@@ -16,6 +16,9 @@
 
 package org.raddad.main.dsl.api.dependency
 
+/*
+   * this function is used cast the dependency to the type of the dependency or throw an exception if the dependency is not of the type.
+ */
 @PublishedApi
 internal inline fun <reified T : Any> safeCast(value: Any?): T {
     if (value == null) throw TypeCastException(

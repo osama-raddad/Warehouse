@@ -31,6 +31,32 @@ class EndToEndTest {
     }
 
     @Test
+    fun `should create a factory`() {
+        val factory = factory {
+            constructor { String::class }
+            creation { CreationPattern.SINGLETON }
+            name {"test"}
+        }
+        addFactory(factory)
+
+        Assertions.assertTrue { warehouse.contains<String>("test") }
+    }
+
+    @Test
+    fun `should create a factory with multiple constructors`() {
+        val factory = factory {
+            constructor { String::class }
+            constructor { Int::class }
+            creation { CreationPattern.SINGLETON }
+            name {"test"}
+        }
+        addFactory(factory)
+
+        Assertions.assertTrue { warehouse.contains<String>("test") }
+        Assertions.assertTrue { warehouse.contains<Int>("test") }
+    }
+
+    @Test
     fun `Test retrieve dependency`() {
         val fakeDependency = "fakeDependency"
         addFactory(factory {

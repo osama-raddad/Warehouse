@@ -28,16 +28,20 @@ class DependencyRetriever(val warehouse: Warehouse, val dependencyResolver: Depe
     }
 
     @PublishedApi
-    internal inline fun <reified T> get(dependency: KClass<*>, target: KClass<*>): T {
-        val key = Metadata(classType = dependency)
-        val factory = warehouse.getFactory(key) ?: error("${key.classType ?: key.className} doesn't exist in the graph")
-        return dependencyResolver.resolveAccessibility(factory, target = target)
-    }
+    internal inline fun <reified T> get(dependency: KClass<*>, target: KClass<*>): T =
+        get(Metadata(classType = dependency), target)
+
 
     @PublishedApi
-    internal inline fun <reified T> get(name: String, target: KClass<*>): T {
-        val key = Metadata(className = name)
-        val factory = warehouse.getFactory(key) ?: error("${key.classType ?: key.className} doesn't exist in the graph")
+    internal inline fun <reified T> get(name: String, target: KClass<*>): T = get(Metadata(className = name), target)
+
+
+    @PublishedApi
+    internal inline fun <reified T> get(
+        key: Metadata,
+        target: KClass<*>
+    ): T {
+        val factory = warehouse.getEntry(key) ?: error("${key.classType ?: key.className} doesn't exist in the graph")
         return dependencyResolver.resolveAccessibility(factory, target = target)
     }
 

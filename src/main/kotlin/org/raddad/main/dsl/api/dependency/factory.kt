@@ -19,6 +19,15 @@ package org.raddad.main.dsl.api.dependency
 import org.raddad.main.core.dependency.entity.CreationPattern
 import kotlin.reflect.KClass
 
+/**
+ * this function is used to create a factory for a dependency.
+ * @param creationPattern is the creation pattern of the dependency.
+ * @param contract is the class of the dependency.
+ * @param name is the name of the dependency.
+ * @param injectsIn is the list of the dependencies that this dependency injects in.
+ * @param block is the block of the factory.
+ * @return a factory for the dependency.
+ */
 fun factory(
     contract: KClass<*>? = null,
     name: String? = null,

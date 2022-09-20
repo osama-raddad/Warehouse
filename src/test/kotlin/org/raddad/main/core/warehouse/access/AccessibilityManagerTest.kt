@@ -50,7 +50,7 @@ internal class AccessibilityManagerTest {
         every { hisWarehouse.dependencyRegistry } returns fakeReg
         every { metadata.classType } returns kClass
         every { metadata.classVisibility } returns KVisibility.PUBLIC
-        every { metadata.isClosed } returns false
+
         every { kClass.visibility } returns KVisibility.PUBLIC
 
         val outcome = subject.resolveWarehouseAccess(myWarehouse, hisWarehouse)
@@ -61,12 +61,12 @@ internal class AccessibilityManagerTest {
             hisWarehouse.accessibility // switch between accessibility types
             hisWarehouse.dependencyRegistry // iterate over the included warehouse registry
             metadata.classVisibility // retrieve PUBLIC dependencies
-            metadata.isClosed // check if this dependency is original of the included Warehouse
             metadata.hashCode() // move dependency
         }
 
         Assertions.assertSame(factory, outcome[metadata])
     }
+
 
     @Test
     fun `resolve TYPED Warehouse Access with one original PUBLIC dependency`() {
@@ -84,7 +84,6 @@ internal class AccessibilityManagerTest {
         every { hisWarehouse.dependencyRegistry } returns fakeReg
         every { metadata.classType } returns kClass
         every { metadata.classVisibility } returns KVisibility.PUBLIC
-        every { metadata.isClosed } returns false
         every { kClass.visibility } returns KVisibility.PUBLIC
 
         val outcome = subject.resolveWarehouseAccess(myWarehouse, hisWarehouse)
@@ -97,7 +96,6 @@ internal class AccessibilityManagerTest {
             myWarehouse.accessibleTo
             hisWarehouse.dependencyRegistry // iterate over the included warehouse registry
             metadata.classVisibility // retrieve PUBLIC dependencies
-            metadata.isClosed // check if this dependency is original of the included Warehouse
             metadata.hashCode() // move dependency
         }
 
@@ -119,7 +117,6 @@ internal class AccessibilityManagerTest {
         every { hisWarehouse.dependencyRegistry } returns fakeReg
         every { metadata.classType } returns kClass
         every { metadata.classVisibility } returns KVisibility.INTERNAL
-        every { metadata.isClosed } returns false
 
         val outcome = subject.resolveWarehouseAccess(myWarehouse, hisWarehouse)
 
@@ -150,7 +147,6 @@ internal class AccessibilityManagerTest {
         every { metadata.className } returns null
         every { metadata.classVisibility } returns KVisibility.PUBLIC
         every { kClass.visibility } returns KVisibility.PUBLIC
-        every { metadata.isClosed } returns false
 
         val outcome = subject.resolveWarehouseAccess(myWarehouse, hisWarehouse)
 
@@ -160,7 +156,6 @@ internal class AccessibilityManagerTest {
             hisWarehouse.accessibility // switch between accessibility types
             hisWarehouse.dependencyRegistry // iterate over the included warehouse registry
             metadata.classVisibility // retrieve PUBLIC dependencies
-            metadata.isClosed // check if this dependency is original of the included Warehouse
             metadata.hashCode() //
             metadata.classType  // create new metadata object
             metadata.className  //
@@ -168,7 +163,6 @@ internal class AccessibilityManagerTest {
             kClass.hashCode() //
         }
         val outcomeMetadata = Metadata(kClass, null, KVisibility.PUBLIC)
-        outcomeMetadata.isClosed = true //
         Assertions.assertSame(factory, outcome[outcomeMetadata])
     }
 

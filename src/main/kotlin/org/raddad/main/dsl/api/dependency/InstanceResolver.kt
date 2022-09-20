@@ -20,7 +20,11 @@ import org.raddad.main.core.dependency.entity.CreationPattern
 import org.raddad.main.core.dependency.entity.Factory
 import org.raddad.main.core.warehouse.entity.Warehouse
 
+/*
+* InstanceResolver is a class that is responsible for resolving the instance of a dependency.
+ */
 object InstanceResolver {
+
     @PublishedApi
     internal const val LOCK = "Lock"
 

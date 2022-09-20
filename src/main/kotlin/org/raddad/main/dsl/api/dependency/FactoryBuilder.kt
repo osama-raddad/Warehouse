@@ -23,6 +23,9 @@ import org.raddad.main.core.warehouse.entity.Warehouse
 import org.raddad.main.dsl.api.warehouse.InjectableWarehouse
 import kotlin.reflect.KClass
 
+/**
+ * FactoryBuilder is a DSL for creating factories.
+ */
 class FactoryBuilder(
     @PublishedApi internal var contractVal: KClass<*>? = null,
     @PublishedApi internal var nameVal: String? = null,
@@ -36,13 +39,15 @@ class FactoryBuilder(
     @PublishedApi
     internal lateinit var tempType: KClass<*>
 
+
+    //TODO not used yet can be used for evaluating the warehouse registry
     @PublishedApi
     internal var paramsVal: MutableList<KClass<*>> = mutableListOf()
 
 
     /**
      * this function specify how the library is going to deal with the dependency instance
-     * @param creationPattern
+     * @param creationPattern the creation pattern of the dependency
      *
      * @see CreationPattern
      */
@@ -53,12 +58,14 @@ class FactoryBuilder(
     /**
      * this function specify in which form this object should be injected,
      * and it is mainly used to hide concrete implementations
+     * @param contract the contract of the dependency
      */
     infix fun contract(contract: KClass<*>) {
         this.contractVal = contract
     }
 
     /**
+     * this function specify the name of the dependency
      * @param name a string which is used as a key for the given dependency
      * this is useful when you have two or more dependencies of the same type
      */
@@ -70,6 +77,7 @@ class FactoryBuilder(
      * this function takes a lambda with string as a return type
      * this string is used as a key for the given dependency
      * this is useful when you have two or more dependencies of the same type
+     * @param block a lambda which returns a string which is used as a name for the given dependency
      */
     inline infix fun name(block: FactoryBuilder.() -> String) {
         this.nameVal = block()
@@ -109,6 +117,7 @@ class FactoryBuilder(
      * this function takes a lambda with KClass as a return type
      * this function specify in which form this object should be injected,
      * and it is mainly used to hide concrete implementations
+     * @param block a lambda which returns a KClass of the dependency
      */
     inline infix fun contract(block: FactoryBuilder.() -> KClass<*>) {
         this.contractVal = block()
@@ -143,6 +152,7 @@ class FactoryBuilder(
     /**
      * this function notify the library that there is a dependency here that is required for this dependency
      * @param name a String that specify the required dependency name
+     * @return the required dependency
      */
     inline infix fun <reified V> Warehouse.param(name: String): V {
         paramsVal.add(V::class)

@@ -16,4 +16,7 @@
 
 package org.raddad.main.core.dependency.entity
 
+/*
+ * Named is a marker interface for dependencies that have a name.
+ */
 annotation class Named(val name: String)

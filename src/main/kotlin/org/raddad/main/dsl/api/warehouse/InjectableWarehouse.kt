@@ -9,7 +9,9 @@ import org.raddad.main.dsl.api.injector.Injector
 import org.raddad.main.dsl.api.injector.InjectorFactory
 import org.raddad.main.storage.StorageDB
 
-
+/**
+ * Injectable Warehouse is a Warehouse that can inject dependencies into its components.
+ */
 class InjectableWarehouse(
     accessibility: Accessibility? = null,
     accessibleTo: Any? = null,

@@ -20,6 +20,9 @@ import org.raddad.main.core.dependency.entity.Factory
 import org.raddad.main.core.dependency.entity.Metadata
 import org.raddad.main.core.warehouse.entity.Warehouse
 
+/**
+ * This class is responsible for the access to the warehouse.
+ */
 interface AccessibilityManagerContract {
     fun resolveWarehouseAccess(
         myWarehouse: Warehouse,
